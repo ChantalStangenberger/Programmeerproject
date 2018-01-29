@@ -23,7 +23,7 @@ Met behulp van Dine by me kunnen gebruikers zoeken naar de dichtsbijzijnde maalt
 * Eventueel login met facebook of met een google account.
 * Eventueel de tijd weergeven wanneer je gasten bij je zijn.
 
-### Sketch
+### Visual sketch
 
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/visual%20sketch.png width="800">
 
