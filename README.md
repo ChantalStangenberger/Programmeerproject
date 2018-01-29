@@ -10,12 +10,12 @@ Programmeerproject - start 29-01-2018
 
 ## Prerequisites
 
-### * Data sources
+### - Data sources
 
-### * External components
+### - External components
 * Firebase
 
-### * Similar mobile apps
+### - Similar mobile apps
 
-### * Hardest parts of implementing the application
+### - Hardest parts of implementing the application
 
