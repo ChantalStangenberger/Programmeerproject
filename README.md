@@ -10,6 +10,23 @@ We kennen allemaal wel het probleem dat we na een lange dag werken geen zin hebb
 ## Solution
 Met behulp van Dine by me kunnen gebruikers zoeken naar de dichtsbijzijnde maaltijd aanbieders. Ze kunnen zien wat de aanbieder op het menu heeft staan (met specificaties) en wat de ranking van de aanbieder is op het gebied van gerecht kwaliteit en gastvrijheid. Wanneer de gebruiker bij een bepaalde aanbieder wilt gaan eten, kan de gebruiker dit aangeven in de app. De aanbieder krijgt hierop een melding: hij kan het verzoek accepteren of weigeren op basis van het profiel van de gebruiker. 
 
+### Main features
+* Registratie en login schermen
+* Scherm met nearby eetopties en zoekfunctie voor specifieke plaatsen
+* Detailscherm waarbij gebruiker ook de precieze eetlocatie kan zien en een verzoek kan sturen naar de aanbieder
+* Mogelijkheid om een eetoptie te publiseren 
+* Persoonlijke afspraken pagina: met verzoeken in behandeling en definitieve afspraken
+* Persoonlijke pagina voor de aanbieders: met eetverzoeken en definitieve afspraken
+
+### Minimum viable product
+* Bovengenoemde main features
+* Eventueel login met facebook of met een google account.
+* Eventueel de tijd weergeven wanneer je gasten bij je zijn.
+
+### Sketch
+
+<img src= width="300">
+
 ## Prerequisites
 
 ### - Data sources
@@ -25,5 +42,3 @@ Met behulp van Dine by me kunnen gebruikers zoeken naar de dichtsbijzijnde maalt
 
 ### - Hardest parts of implementing the application
 * Het duidelijk weergeven van de locatie van een aanbieder met behulp van de API.
-* Eventueel login met facebook of met een google account.
-* Eventueel de tijd weergeven wanneer je gasten bij je zijn.
