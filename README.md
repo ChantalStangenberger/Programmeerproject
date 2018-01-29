@@ -25,7 +25,7 @@ Met behulp van Dine by me kunnen gebruikers zoeken naar de dichtsbijzijnde maalt
 
 ### Sketch
 
-<img src= width="300">
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/visual%20sketch.png width="300">
 
 ## Prerequisites
 
