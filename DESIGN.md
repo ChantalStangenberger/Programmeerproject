@@ -1,4 +1,4 @@
 # Design document
 
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/design%20document.png width="1000">
+<img src= width="1000">
 
