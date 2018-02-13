@@ -26,8 +26,9 @@
     - Location
 
 * Users
-  - email
   - userId
+    - email
+    - userId
 
 * FoodDates
   - currentUser
