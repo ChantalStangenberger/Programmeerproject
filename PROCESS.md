@@ -33,7 +33,3 @@
 ### Dag 12: 6 maart
 
 ### Dag 13: 7 maart
-
-### Dag 14: 8 maart
-
-### Dag 15: 9 maart
