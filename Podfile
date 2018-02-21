@@ -12,5 +12,7 @@ target 'DinebyMe!' do
   pod 'Firebase/Auth'
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 end

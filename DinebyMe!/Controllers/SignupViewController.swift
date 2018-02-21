@@ -57,7 +57,6 @@ class SignupViewController: UIViewController {
         }
     }
     
-    // creates path in database with unique userid and email
     func storeUserData(userId: String) {
         Database.database().reference().child("users").child(userId).setValue([
             "email": emailTextField.text,

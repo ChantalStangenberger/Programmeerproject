@@ -28,7 +28,8 @@ class LoginViewController: UIViewController {
         cancelButton.layer.cornerRadius = 4
         
         let facebookloginButton = LoginButton(readPermissions: [ .publicProfile ])
-        facebookloginButton.center = view.center
+        let newCenter = CGPoint(x: 78, y: 172)
+        facebookloginButton.center = newCenter
         
         view.addSubview(facebookloginButton)
     }
