@@ -4,6 +4,8 @@ Student: Chantal Stangenberger
 
 Programmeerproject - start 29-01-2018
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/ChantalStangenberger/Programmeerproject?branch=master)](https://bettercodehub.com/)
+
 ## Problem statement
 We kennen allemaal wel het probleem dat we na een lange dag werken geen zin hebben om te koken of het probleem dat we geen zin hebben om in ons eentje te moeten eten. Voor deze twee doelgroepen biedt Dine by me de uitkomst! Met behulp van de app kunnen mensen aangeven wat zij van plan zijn om die avond te gaan koken (met de bijbehorende kosten en specificaties). Hierop kunnen andere mensen (bijvoorbeeld mensen die lange werkdagen maken) reageren en bij de aanbieder op bezoek gaan. 
 
