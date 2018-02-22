@@ -15,10 +15,9 @@
 * Daarnaast vandaag ook al gekeken naar de google maps API. Het is gelukt om de google maps kaart te tonen in de app.
 
 ### Dag 4: 22 februari
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/loginscreen.PNG width="300"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/forgotpassword.PNG width="300">
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/loginscreen.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/forgotpassword.PNG width="200">
 
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/facebookpermission.PNG width="300">
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/facebookpermission2.PNG width="300">
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/facebookpermission.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/facebookpermission2.PNG width="200">
 * Facebooklogin goed werkend gekregen en daarnaast ook een 'forgot password?' optie toegevoegd, waarbij een mail met resetlink wordt gestuurd naar de gebruiker.
 
 ### Dag 5: 23 februari
