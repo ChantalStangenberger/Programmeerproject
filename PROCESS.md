@@ -3,10 +3,16 @@
 ## Week II - 19 februari t/m 23 februari
 
 ### Dag 1: 19 februari
+* Vorige week heb ik de navigation flow al gemaakt voor de prototype versie.
+* Begonnen met het maken van de login/signup schermen.
 
 ### Dag 2: 20 februari
+* Ik wil graag gebruik maken van een facebook login en een google login. Hier heb ik vandaag vooral naar gekeken. Dit is wat lastiger te implementeren dan eerst gedacht.
+* De email login werkt goed met firebase
 
 ### Dag 3: 21 februari
+* Verder gewerkt aan het loginscherm (met de facebook login).
+* Daarnaast vandaag ook al gekeken naar de google maps API. Het is gelukt om de google maps kaart te tonen in de app.
 
 ### Dag 4: 22 februari
 
