@@ -11,6 +11,7 @@
 import UIKit
 import Firebase
 import FacebookLogin
+import FacebookCore
 
 class LoginViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var changepasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,54 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 4
         cancelButton.layer.cornerRadius = 4
         
-        let facebookloginButton = LoginButton(readPermissions: [ .publicProfile ])
-        let newCenter = CGPoint(x: 78, y: 172)
-        facebookloginButton.center = newCenter
+        let facebookloginButton = UIButton(frame: CGRect(x: 65, y: 140, width: 80, height: 80))
+        let facebookimage = UIImage(named: "facebookbutton")
+        facebookloginButton.setImage(facebookimage, for: .normal)
+        facebookloginButton.addTarget(self, action: #selector(self.facebookloginButtonTapped), for: .touchUpInside)
+        
+        let googleloginButton = UIButton(frame: CGRect(x: 235, y: 143, width: 75, height: 75))
+        let googleimage = UIImage(named: "googlebutton")
+        googleloginButton.setImage(googleimage, for: .normal)
         
         view.addSubview(facebookloginButton)
+        view.addSubview(googleloginButton)
     }
+    
+    @objc func facebookloginButtonTapped() {
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print(grantedPermissions)
+                print(declinedPermissions)
+                facebookAccesToken = accessToken
+                let credential = FacebookAuthProvider.credential(withAccessToken: (facebookAccesToken?.authenticationToken)!)
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if error != nil {
+                        let alert = UIAlertController(title: "Whoops!", message: "Something went wrong", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+//                    self.storeUserData(userId: (user?.uid)!)
+                    currentUser = Auth.auth().currentUser
+                    self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
+                }
+            }
+        }
+    }
+    
+//    func storeUserData(userId: String) {
+//        let detailRequest : SDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, email, name"]).start {
+//
+//        Database.database().reference().child("users").child(userId).setValue([
+//            "uid": Auth.auth().currentUser?.uid])
+//    }
     
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if emailTextField.text == "" || passwordTextField.text == "" {
@@ -64,9 +108,36 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "cancelloginSegue", sender: nil)
+        return
     }
-
+    @IBAction func changepasswordButtonTapped(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Forgot password", message: "Please enter your email address and we will send you a reset link.", preferredStyle: .alert)
+        
+        let sendAction = UIAlertAction(title: "Send link", style: .default) { action in
+            let emailField = alert.textFields![0]
+                    Auth.auth().sendPasswordReset(withEmail: emailField.text!) { (error) in
+                        if error != nil {
+                            let alert = UIAlertController(title: "Error while sending password reset email", message: "This email address is not linked to an account.", preferredStyle: .alert)
+                            let okeAction = UIAlertAction(title: "Ok",
+                                                          style: .default)
+                            alert.addAction(okeAction)
+                            self.present(alert, animated: true, completion: nil)
+                        } 
+                    }
+        }
+        
+            let cancelAction = UIAlertAction(title: "Cancel",
+                                             style: .default)
+            
+            alert.addTextField { textEmail in
+                textEmail.placeholder = "Enter your email address"
+            }
+            
+            alert.addAction(sendAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UIView {

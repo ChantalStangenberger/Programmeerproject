@@ -8,15 +8,26 @@
 
 import UIKit
 import Firebase
+import FacebookCore
+
+var currentUser: User?
 
 class BookingsTableViewController: UITableViewController {
     
     @IBAction func signoutButtonTapped(_ sender: AnyObject) {
-        do {
-            try Auth.auth().signOut()
-            self.performSegue(withIdentifier: "signoutSegue", sender: self)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        if facebookAccesToken != nil {
+            AccessToken.current = nil
+            facebookAccesToken = nil
+        }
+        if currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                currentUser = nil
+                self.performSegue(withIdentifier: "signoutSegue", sender: self)
+                print("Sign Out Successful")
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         }
     }
     

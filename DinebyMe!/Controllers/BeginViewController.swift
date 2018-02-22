@@ -15,11 +15,11 @@ class BeginViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "loginSegue", sender: self)
+        return
     }
     
     @IBAction func signupButtonTapped(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "signupSegue", sender: self)
+        return
     }
     
     override func viewDidLoad() {
@@ -28,10 +28,11 @@ class BeginViewController: UIViewController {
         signupButton.layer.cornerRadius = 4
         
         Auth.auth().addStateDidChangeListener() { auth, user in
-            if user != nil {
+            if currentUser != nil {
                     self.performSegue(withIdentifier: "homeSegue", sender: nil)
             }
         }
         
     }
 }
+

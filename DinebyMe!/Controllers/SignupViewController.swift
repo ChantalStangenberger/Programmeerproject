@@ -64,6 +64,6 @@ class SignupViewController: UIViewController {
     }
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "cancelsignupSegue", sender: nil)
+        return
     }
 }

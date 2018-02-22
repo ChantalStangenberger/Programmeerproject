@@ -26,6 +26,7 @@
 		50C73CA8203DA96C00A5A9D5 /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA7203DA96C00A5A9D5 /* RequestsTableViewController.swift */; };
 		50C73CAA203DA97D00A5A9D5 /* BookingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */; };
 		50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */; };
+		50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAF203F0C2200A5A9D5 /* Users.swift */; };
 		B9106C85B8FFAAA79FAF23ED /* Pods_DinebyMe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544087BE5ABB8FF9B19E13B3 /* Pods_DinebyMe_.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		50C73CA7203DA96C00A5A9D5 /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
 		50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsTableViewController.swift; sourceTree = "<group>"; };
 		50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewCell.swift; sourceTree = "<group>"; };
+		50C73CAF203F0C2200A5A9D5 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		544087BE5ABB8FF9B19E13B3 /* Pods_DinebyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DinebyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782D3D37A0A40F42A744968D /* Pods-DinebyMe!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinebyMe!.release.xcconfig"; path = "Pods/Target Support Files/Pods-DinebyMe!/Pods-DinebyMe!.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 		5008A36A2034410300E73BF4 /* DinebyMe! */ = {
 			isa = PBXGroup;
 			children = (
+				50C73CAE203F0BFA00A5A9D5 /* Models */,
 				50C73CAB203DB0C300A5A9D5 /* ViewCell */,
 				5008A39E203444C400E73BF4 /* Controllers */,
 				5008A36B2034410300E73BF4 /* AppDelegate.swift */,
@@ -182,6 +185,14 @@
 				50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */,
 			);
 			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		50C73CAE203F0BFA00A5A9D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50C73CAF203F0C2200A5A9D5 /* Users.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7D43C4229C463AC53EE1C979 /* Frameworks */ = {
@@ -420,6 +431,7 @@
 				50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */,
 				5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */,
 				50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */,
+				50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */,
 				5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */,
 				5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */,
 				50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */,
