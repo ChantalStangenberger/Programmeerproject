@@ -21,7 +21,7 @@
 ### Dag 5: 23 februari
 * Vandaag gezorgd dat facebook grantedpermissions goed werkt. Wanneer de gebruiker geen toestemming geeft voor het gebruik van de op facebook bekende email, verschijnt er een error.
 * Facebook email en naam opgeslagen in firebase 
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/googleplaceszoekbalk.PNG width="200">
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/googleplaces%20zoekbalk.PNG width="200">
 * Gezorgd dat de google zoekbalk goed werkt met behulp van google places.
 
 ## Week III - 26 februari t/m 2 maart
