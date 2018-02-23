@@ -19,7 +19,10 @@
 * Facebooklogin goed werkend gekregen en daarnaast ook een 'forgot password?' optie toegevoegd, waarbij een mail met resetlink wordt gestuurd naar de gebruiker.
 
 ### Dag 5: 23 februari
-
+* Vandaag gezorgd dat facebook grantedpermissions goed werkt. Wanneer de gebruiker geen toestemming geeft voor het gebruik van de op facebook bekende email, verschijnt er een error.
+* Facebook email en naam opgeslagen in firebase 
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/googleplaces zoekbalk.PNG width="200">
+* Gezorgd dat de google zoekbalk goed werkt met behulp van google places.
 
 ## Week III - 26 februari t/m 2 maart
 
