@@ -50,33 +50,48 @@ class LoginViewController: UIViewController {
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print(grantedPermissions)
-                print(declinedPermissions)
-                facebookAccesToken = accessToken
-                let credential = FacebookAuthProvider.credential(withAccessToken: (facebookAccesToken?.authenticationToken)!)
-                Auth.auth().signIn(with: credential) { (user, error) in
-                    if error != nil {
-                        let alert = UIAlertController(title: "Whoops!", message: "Something went wrong", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK",
-                                                     style: .default)
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
+            case .success(let grantedPermissions, _, let accessToken):
+                if grantedPermissions.contains("email") {
+                    facebookAccesToken = accessToken
+                    let credential = FacebookAuthProvider.credential(withAccessToken: (facebookAccesToken?.authenticationToken)!)
+                    Auth.auth().signIn(with: credential) { (user, error) in
+                        if error != nil {
+                            let alert = UIAlertController(title: "Error", message: "Something went wrong while signing in!", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK",
+                                                         style: .default)
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        self.storeUserData(userId: (user?.uid)!)
+                        currentUser = Auth.auth().currentUser
+                        self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
                     }
-//                    self.storeUserData(userId: (user?.uid)!)
-                    currentUser = Auth.auth().currentUser
-                    self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Error while getting email address permission!", message: "DinebyMe! needs your email address for optimal application experience", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK",
+                                                 style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
     }
     
-//    func storeUserData(userId: String) {
-//        let detailRequest : SDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, email, name"]).start {
-//
-//        Database.database().reference().child("users").child(userId).setValue([
-//            "uid": Auth.auth().currentUser?.uid])
-//    }
+    func storeUserData(userId: String) {
+        let connection = GraphRequestConnection()
+        connection.add(GraphRequest(graphPath: "/me", parameters: ["fields": "name, email"])) { httpResponse, result in
+            switch result {
+            case .success(let response):
+                Database.database().reference().child("users").child(userId).setValue([
+                    "uid": Auth.auth().currentUser?.uid,
+                    "email": response.dictionaryValue?["email"],
+                    "name": response.dictionaryValue?["name"]])
+            case .failed(let error):
+                print("Custom Graph Request Failed: \(error)")
+            }
+        }
+        connection.start()
+    }
     
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if emailTextField.text == "" || passwordTextField.text == "" {

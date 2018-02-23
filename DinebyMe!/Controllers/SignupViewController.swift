@@ -11,6 +11,7 @@ import Firebase
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var yournameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -21,20 +22,23 @@ class SignupViewController: UIViewController {
         
         emailTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         passwordTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
+        yournameTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         registerButton.layer.cornerRadius = 4
         cancelButton.layer.cornerRadius = 4
     }
     
     @IBAction func registerButtonTapped(_ sender: AnyObject) {
-        if emailTextField.text == "" || passwordTextField.text == "" {
+        if yournameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
                 let rightTransform  = CGAffineTransform(translationX: 40, y: 0)
+                self.yournameTextField.transform = rightTransform
                 self.emailTextField.transform = rightTransform
                 self.passwordTextField.transform = rightTransform
                 
             }) { (_) in
                 
                 UIView.animate(withDuration: 0.5, animations: {
+                    self.yournameTextField.transform = CGAffineTransform.identity
                     self.emailTextField.transform = CGAffineTransform.identity
                     self.passwordTextField.transform = CGAffineTransform.identity
                 })
@@ -53,13 +57,13 @@ class SignupViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
             }
-
         }
     }
     
     func storeUserData(userId: String) {
         Database.database().reference().child("users").child(userId).setValue([
             "email": emailTextField.text,
+            "name": yournameTextField.text,
             "uid": Auth.auth().currentUser?.uid])
     }
 

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleMaps
+import GooglePlaces
 import FacebookCore
 
 var facebookAccesToken: AccessToken?
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         currentUser = Auth.auth().currentUser
         facebookAccesToken = AccessToken.current
         
@@ -33,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         GMSServices.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
+        GMSPlacesClient.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
         
         return true
     }
