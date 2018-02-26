@@ -8,7 +8,7 @@
 
 ### Dag 2: 20 februari
 * Ik wil graag gebruik maken van een facebook login en een google login. Hier heb ik vandaag vooral naar gekeken. Dit is wat lastiger te implementeren dan eerst gedacht.
-* De email login werkt goed met firebase
+* De email login werkt goed met firebase.
 
 ### Dag 3: 21 februari
 * Verder gewerkt aan het loginscherm (met de facebook login).
@@ -20,13 +20,19 @@
 
 ### Dag 5: 23 februari
 * Vandaag gezorgd dat facebook grantedpermissions goed werkt. Wanneer de gebruiker geen toestemming geeft voor het gebruik van de op facebook bekende email, verschijnt er een error.
-* Facebook email en naam opgeslagen in firebase 
+* Facebook email en naam opgeslagen in firebase. 
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/googleplaces%20zoekbalk.PNG width="200">
 * Gezorgd dat de google zoekbalk goed werkt met behulp van google places.
 
 ## Week III - 26 februari t/m 2 maart
 
 ### Dag 6: 16 februari
+* De indeling van het inloggen heb ik veranderd en daarnaast ook de layout aangepast.
+* Ook heb ik alvast een app icoon gemaakt.
+* Aparte error meldingen gemaakt bij het inloggen en gezorgd dat de toetsenbalk verwijnt wanneer er op return wordt gedrukt of elders op het scherm wordt geklikt.
+* Gewerkt aan newfoodEvent: gezorgd dat alle velden werken en dat de gebruiker een afbeelding kan invoegen (ook data opgeslagen in firebase).
+* Gekeken naar current locatie van de gebruiker en hoe dit op te slaan. Dit is nog niet helemaal gelukt.
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/fototoevoegen.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/newfoodevent.PNG width="200">
 
 ### Dag 7: 27 februari
 
