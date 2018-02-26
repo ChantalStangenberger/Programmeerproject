@@ -26,7 +26,7 @@
 
 ## Week III - 26 februari t/m 2 maart
 
-### Dag 6: 16 februari
+### Dag 6: 26 februari
 * De indeling van het inloggen heb ik veranderd en daarnaast ook de layout aangepast.
 * Ook heb ik alvast een app icoon gemaakt.
 * Aparte error meldingen gemaakt bij het inloggen en gezorgd dat de toetsenbalk verwijnt wanneer er op return wordt gedrukt of elders op het scherm wordt geklikt.
