@@ -19,7 +19,8 @@ class BookingsTableViewController: UITableViewController {
             AccessToken.current = nil
             facebookAccesToken = nil
         }
-        if currentUser != nil {
+            
+        else if currentUser != nil {
             do {
                 try Auth.auth().signOut()
                 currentUser = nil

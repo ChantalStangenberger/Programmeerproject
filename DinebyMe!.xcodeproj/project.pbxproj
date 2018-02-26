@@ -18,6 +18,7 @@
 		5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A39F2034450E00E73BF4 /* BeginViewController.swift */; };
 		5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A1203455D300E73BF4 /* LoginViewController.swift */; };
 		5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A3203455E800E73BF4 /* SignupViewController.swift */; };
+		509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AACB120443E1600890B24 /* AddLocationViewController.swift */; };
 		50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */; };
 		50C73CA0203DA8A500A5A9D5 /* SearchDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */; };
 		50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA1203DA8E900A5A9D5 /* NewFoodEventViewController.swift */; };
@@ -66,6 +67,7 @@
 		5008A39F2034450E00E73BF4 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		5008A3A1203455D300E73BF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5008A3A3203455E800E73BF4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		509AACB120443E1600890B24 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewController.swift; sourceTree = "<group>"; };
 		50C73CA1203DA8E900A5A9D5 /* NewFoodEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodEventViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */,
 				50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */,
 				50C73CA1203DA8E900A5A9D5 /* NewFoodEventViewController.swift */,
+				509AACB120443E1600890B24 /* AddLocationViewController.swift */,
 				50C73CA3203DA92100A5A9D5 /* RecipeDetailViewController.swift */,
 				50C73CA5203DA93800A5A9D5 /* BookConfirmationViewController.swift */,
 				50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */,
@@ -432,6 +435,7 @@
 				5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */,
 				50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */,
 				50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */,
+				509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */,
 				5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */,
 				5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */,
 				50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */,

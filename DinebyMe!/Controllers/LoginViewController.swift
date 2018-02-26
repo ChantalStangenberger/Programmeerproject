@@ -13,13 +13,14 @@ import Firebase
 import FacebookLogin
 import FacebookCore
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField! = nil
+    @IBOutlet weak var passwordTextField: UITextField! = nil
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var changepasswordButton: UIButton!
+    @IBOutlet weak var registeraccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class LoginViewController: UIViewController {
         passwordTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         loginButton.layer.cornerRadius = 4
         cancelButton.layer.cornerRadius = 4
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
         let facebookloginButton = UIButton(frame: CGRect(x: 65, y: 140, width: 80, height: 80))
         let facebookimage = UIImage(named: "facebookbutton")
@@ -96,7 +99,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if emailTextField.text == "" || passwordTextField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
-                let rightTransform  = CGAffineTransform(translationX: 40, y: 0)
+                let rightTransform  = CGAffineTransform(translationX: 30, y: 0)
                 self.emailTextField.transform = rightTransform
                 self.passwordTextField.transform = rightTransform
                 
@@ -110,11 +113,30 @@ class LoginViewController: UIViewController {
         } else {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 if error != nil {
-                    let alert = UIAlertController(title: "Whoops!", message: "Incorrect email or password", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK",
-                    style: .default)
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true, completion: nil)
+                    if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                        
+                        switch(errorCode) {
+                        case .userNotFound:
+                            let alert = UIAlertController(title: "Something went wrong", message: "User was not found in our database, please register", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK",
+                                                         style: .default)
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
+                        case .wrongPassword:
+                            let alert = UIAlertController(title: "Something went wrong", message: "Wrong password", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK",
+                                                         style: .default)
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
+                        default:
+                            let alert = UIAlertController(title: "Something went wrong", message: "Try again to register", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK",
+                                                         style: .default)
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                    
                 } else {
                     self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
                 }
@@ -153,6 +175,22 @@ class LoginViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func registeraccountButtonTapped(_ sender: AnyObject) {
+        return
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        self.view.endEditing(true)
+    }
+    
 }
 
 extension UIView {

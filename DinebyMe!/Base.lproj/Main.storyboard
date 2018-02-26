@@ -12,6 +12,7 @@
     <customFonts key="customFonts">
         <array key="Thonburi.ttc">
             <string>Thonburi</string>
+            <string>Thonburi-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,21 +24,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="esta128706-2-500x500" translatesAutoresizingMaskIntoConstraints="NO" id="gV7-tj-cDL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="gV7-tj-cDL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HC7-rI-Wbu">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HC7-rI-Wbu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iT2-iq-9K6">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="iT2-iq-9K6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp6-ml-3Lg">
-                                            <rect key="frame" x="8" y="500" width="359" height="61"/>
+                                        <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp6-ml-3Lg">
+                                            <rect key="frame" x="8" y="554" width="359" height="61"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="61" id="luy-1U-HuA"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
                                             <state key="normal" title="Login">
                                                 <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,62 +48,34 @@
                                                 <segue destination="f8e-D6-gmU" kind="show" identifier="" id="SD5-Cd-g4T"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-rX-FZx">
-                                            <rect key="frame" x="8" y="576" width="359" height="61"/>
-                                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="61" id="Zun-ln-XoQ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
-                                            <state key="normal" title="Sign up with email">
-                                                <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ze-bt-huU"/>
-                                                <segue destination="1eA-1Q-4Fc" kind="show" identifier="" id="9Kj-nB-l82"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dine by Me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-j9-hyZ">
-                                            <rect key="frame" x="168" y="162" width="207" height="54"/>
-                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dine by Me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-j9-hyZ">
+                                            <rect key="frame" x="170" y="211" width="207" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="24"/>
                                             <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keuken" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-97-zhP">
+                                            <rect key="frame" x="22" y="81" width="209" height="134"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login to discover the fantastic hospitality of nearby people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG2-jW-Ykx">
+                                            <rect key="frame" x="11" y="273" width="352" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="12"/>
+                                            <color key="textColor" red="0.36410750269999997" green="0.3748017132" blue="0.32325509949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="pbh-rX-FZx" firstAttribute="top" secondItem="kp6-ml-3Lg" secondAttribute="bottom" constant="15" id="7RT-dU-LQg"/>
-                                        <constraint firstAttribute="trailing" secondItem="pbh-rX-FZx" secondAttribute="trailing" constant="8" id="EfZ-il-5gs"/>
-                                        <constraint firstItem="pbh-rX-FZx" firstAttribute="top" secondItem="kp6-ml-3Lg" secondAttribute="bottom" constant="15" id="GXG-kr-DxF"/>
-                                        <constraint firstItem="kp6-ml-3Lg" firstAttribute="top" secondItem="b2y-j9-hyZ" secondAttribute="bottom" constant="284" id="NcW-s7-qTO"/>
-                                        <constraint firstAttribute="trailing" secondItem="b2y-j9-hyZ" secondAttribute="trailing" id="QQE-SF-e5g"/>
-                                        <constraint firstAttribute="trailing" secondItem="kp6-ml-3Lg" secondAttribute="trailing" constant="8" id="eZJ-0B-DPI"/>
-                                        <constraint firstItem="pbh-rX-FZx" firstAttribute="leading" secondItem="iT2-iq-9K6" secondAttribute="leading" constant="8" id="ei0-wJ-Fgf"/>
-                                        <constraint firstItem="kp6-ml-3Lg" firstAttribute="leading" secondItem="iT2-iq-9K6" secondAttribute="leading" constant="8" id="fXn-Ta-cdo"/>
-                                        <constraint firstItem="b2y-j9-hyZ" firstAttribute="leading" secondItem="iT2-iq-9K6" secondAttribute="leading" constant="168" id="fYQ-Ny-hfh"/>
-                                        <constraint firstItem="kp6-ml-3Lg" firstAttribute="top" secondItem="b2y-j9-hyZ" secondAttribute="bottom" constant="284" id="fuL-yn-Nad"/>
-                                        <constraint firstAttribute="bottom" secondItem="pbh-rX-FZx" secondAttribute="bottom" constant="30" id="kID-O9-O6n"/>
-                                        <constraint firstItem="b2y-j9-hyZ" firstAttribute="top" secondItem="iT2-iq-9K6" secondAttribute="top" constant="162" id="kaZ-lr-AkN"/>
-                                    </constraints>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="gV7-tj-cDL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4Xe-vv-O4T"/>
-                            <constraint firstItem="gV7-tj-cDL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HdB-Xk-TOC"/>
-                            <constraint firstItem="HC7-rI-Wbu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NwE-Ha-R5w"/>
-                            <constraint firstItem="gV7-tj-cDL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="W81-fG-Rei"/>
-                            <constraint firstItem="HC7-rI-Wbu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wsc-ie-km7"/>
-                            <constraint firstItem="HC7-rI-Wbu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xam-l7-ddZ"/>
-                            <constraint firstItem="HC7-rI-Wbu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gwe-Hr-LSu"/>
-                            <constraint firstItem="gV7-tj-cDL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jjs-b9-JWS"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="kp6-ml-3Lg" id="06y-BN-cck"/>
-                        <outlet property="signupButton" destination="pbh-rX-FZx" id="u8k-1h-0o1"/>
                         <segue destination="CUi-6Q-bMY" kind="show" identifier="homeSegue" id="eHY-kg-Hw2"/>
                     </connections>
                 </viewController>
@@ -118,11 +91,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="esta128706-2-500x500" translatesAutoresizingMaskIntoConstraints="NO" id="En8-JH-bUk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="En8-JH-bUk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-FA-GbE">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-FA-GbE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="6NZ-sm-XDG">
@@ -133,14 +106,14 @@
                                             <rect key="frame" x="40" y="267" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hpy-Qd-huo">
                                             <rect key="frame" x="40" y="318" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-YP-FdB">
@@ -149,7 +122,7 @@
                                             <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                             <state key="normal" title="Cancel">
-                                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
                                                 <action selector="cancelButtonTapped:" destination="f8e-D6-gmU" eventType="touchUpInside" id="bfS-fg-jep"/>
@@ -172,18 +145,30 @@
                                             <rect key="frame" x="166" y="172" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="19"/>
-                                            <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.36410750274421505" green="0.37480171319796951" blue="0.32325509953609971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2c-w5-caT">
-                                            <rect key="frame" x="207" y="343" width="128" height="30"/>
+                                            <rect key="frame" x="207" y="347" width="128" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <state key="normal" title="Forgot password?">
-                                                <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.36410750269999997" green="0.3748017132" blue="0.32325509949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="changepasswordButtonTapped:" destination="f8e-D6-gmU" eventType="touchUpInside" id="Gpm-zx-37j"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-ND-1hb">
+                                            <rect key="frame" x="32" y="461" width="310" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
+                                            <state key="normal" title="Register here your account by email">
+                                                <color key="titleColor" red="0.36410750269999997" green="0.3748017132" blue="0.32325509949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="registeraccountButtonTapped:" destination="f8e-D6-gmU" eventType="touchUpInside" id="dWu-I6-65R"/>
+                                                <segue destination="1eA-1Q-4Fc" kind="show" id="hMR-pI-Fn4"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -200,6 +185,7 @@
                         <outlet property="emailTextField" destination="cLp-Mw-p5M" id="TW5-Mo-DJf"/>
                         <outlet property="loginButton" destination="cjs-gP-VZ1" id="WTE-x0-FNf"/>
                         <outlet property="passwordTextField" destination="hpy-Qd-huo" id="0y8-QM-8yU"/>
+                        <outlet property="registeraccountButton" destination="fYc-ND-1hb" id="HWo-sA-KmW"/>
                         <segue destination="CUi-6Q-bMY" kind="show" identifier="loginhomeSegue" id="edJ-ug-ILK"/>
                     </connections>
                 </viewController>
@@ -215,11 +201,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="esta128706-2-500x500" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-sQ-J1S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-sQ-J1S">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pS-Ld-arB">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pS-Ld-arB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="uFn-NQ-asY">
@@ -227,21 +213,21 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="U5v-TU-LVb">
-                                            <rect key="frame" x="40" y="267" width="295" height="30"/>
+                                            <rect key="frame" x="40" y="331" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="r4C-2b-kho">
-                                            <rect key="frame" x="40" y="318" width="295" height="30"/>
+                                            <rect key="frame" x="40" y="385" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oh-mG-IqF">
-                                            <rect key="frame" x="25" y="395" width="148" height="30"/>
+                                            <rect key="frame" x="25" y="461" width="148" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
@@ -253,7 +239,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-Re-TUT">
-                                            <rect key="frame" x="200" y="395" width="148" height="30"/>
+                                            <rect key="frame" x="200" y="461" width="148" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
@@ -261,16 +247,34 @@
                                                 <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" identifier="" id="8qn-ZF-4rg"/>
+                                                <segue destination="f8e-D6-gmU" kind="show" id="gw6-kT-5qP"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-bl-BsU">
-                                            <rect key="frame" x="40" y="218" width="295" height="30"/>
+                                            <rect key="frame" x="40" y="275" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keuken" translatesAutoresizingMaskIntoConstraints="NO" id="RGZ-ec-Jk0">
+                                            <rect key="frame" x="86" y="76" width="217" height="134"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSs-xr-1q2">
+                                            <rect key="frame" x="0.0" y="125" width="107" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBA-Tx-jsZ">
+                                            <rect key="frame" x="268" y="125" width="107" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <blurEffect style="extraLight"/>
@@ -281,6 +285,8 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="GDW-Re-TUT" id="vt5-D2-5oV"/>
+                        <outlet property="designLabel" destination="qBA-Tx-jsZ" id="BeK-rM-r2K"/>
+                        <outlet property="designLabel2" destination="aSs-xr-1q2" id="8GB-Cy-Sup"/>
                         <outlet property="emailTextField" destination="U5v-TU-LVb" id="hP6-ik-TT1"/>
                         <outlet property="passwordTextField" destination="r4C-2b-kho" id="AuP-qw-ws6"/>
                         <outlet property="registerButton" destination="2oh-mG-IqF" id="94g-aZ-AZk"/>
@@ -290,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYL-Ua-K54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="960.2698650674663"/>
+            <point key="canvasLocation" x="1088.8" y="-673.31334332833592"/>
         </scene>
         <!--Search Detail Table View Controller-->
         <scene sceneID="Tjf-nz-ERX">
@@ -328,7 +334,7 @@
                             <outlet property="delegate" destination="csC-BW-tlq" id="VPA-NY-psQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9mr-DF-Zlm">
+                    <navigationItem key="navigationItem" title="Search detail" id="9mr-DF-Zlm">
                         <barButtonItem key="backBarButtonItem" title=" " id="3WB-9f-Q3C"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Feq-zr-Yuh">
                             <connections>
@@ -374,7 +380,7 @@
         <scene sceneID="6X6-fD-yXg">
             <objects>
                 <navigationController id="jhZ-Gq-cet" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookings" image="home-7" id="9Xl-Bw-VQW"/>
+                    <tabBarItem key="tabBarItem" title="Bookings" image="bookings" id="9Xl-Bw-VQW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zr0-QW-ona">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -386,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdx-LX-rjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="134"/>
+            <point key="canvasLocation" x="1950" y="134"/>
         </scene>
         <!-- -->
         <scene sceneID="eQU-0o-DIB">
@@ -422,7 +428,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="esta128706-2-500x500" translatesAutoresizingMaskIntoConstraints="NO" id="glI-vS-HTo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="glI-vS-HTo">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -433,59 +439,132 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bWB-Se-mzk">
-                                            <rect key="frame" x="40" y="138" width="295" height="30"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Event date" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nGH-97-X5T">
+                                            <rect key="frame" x="40" y="172" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Event time" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bcd-rh-4Ag">
+                                            <rect key="frame" x="40" y="217" width="295" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe cuisine" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jlp-Tb-3k7">
-                                            <rect key="frame" x="40" y="201" width="295" height="30"/>
+                                            <rect key="frame" x="40" y="82" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe price" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-gl-M94">
-                                            <rect key="frame" x="40" y="257" width="295" height="30"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe price (€)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-gl-M94">
+                                            <rect key="frame" x="40" y="127" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New food event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwN-lQ-AX5">
-                                            <rect key="frame" x="8" y="27" width="133" height="33"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagebackground" translatesAutoresizingMaskIntoConstraints="NO" id="7Dg-X0-sfk">
+                                            <rect key="frame" x="31" y="314" width="216" height="120"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
-                                            <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRc-tG-BB2">
-                                            <rect key="frame" x="0.0" y="61" width="375" height="21"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-2G-lNJ">
+                                            <rect key="frame" x="249" y="359" width="86" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="13"/>
+                                            <state key="normal" title="upload image">
+                                                <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="uploadimageButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="yZA-hr-avh"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll4-AT-tON">
+                                            <rect key="frame" x="40" y="262" width="295" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <state key="normal" title="Add location">
+                                                <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addlocationButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="OYO-Fs-Jvw"/>
+                                                <segue destination="0dB-MI-ExV" kind="show" id="aN8-YF-xXJ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-rN-U1P">
+                                            <rect key="frame" x="40" y="482" width="295" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <state key="normal" title="Add new food event to feed">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addneweventButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="l2N-ce-m1s"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bWB-Se-mzk">
+                                            <rect key="frame" x="40" y="37" width="295" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sdp-bx-VLw"/>
                     </view>
                     <connections>
-                        <outlet property="docorLabel" destination="iRc-tG-BB2" id="aeO-6S-HDa"/>
+                        <outlet property="addImage" destination="7Dg-X0-sfk" id="Qd3-es-wBk"/>
+                        <outlet property="addlocationButton" destination="ll4-AT-tON" id="bjP-SJ-Uav"/>
+                        <outlet property="addneweventButton" destination="ehc-rN-U1P" id="Rdz-Hx-o9s"/>
+                        <outlet property="eventdateTextField" destination="nGH-97-X5T" id="4I8-0z-LCi"/>
+                        <outlet property="eventtimeTextField" destination="Bcd-rh-4Ag" id="Czk-gh-H2Z"/>
                         <outlet property="recipecuisineTextField" destination="Jlp-Tb-3k7" id="iko-h1-bCP"/>
                         <outlet property="recipenameTextField" destination="bWB-Se-mzk" id="57K-ii-Jtg"/>
                         <outlet property="recipepriceTextField" destination="ZKU-gl-M94" id="UgH-HX-aHK"/>
+                        <outlet property="uploadimageButton" destination="Lau-2G-lNJ" id="tB5-7H-IPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhl-9D-fQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3733.5999999999999" y="-1455.0224887556224"/>
+        </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="XT5-6M-iQF">
+            <objects>
+                <viewController id="0dB-MI-ExV" customClass="AddLocationViewController" customModule="DinebyMe_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ogO-vG-eBj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="iMB-bu-1wM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdZ-Bk-uoK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="iDa-lG-Ao1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X1T-Cq-LFc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddv-SF-jfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4498.3999999999996" y="-1451.4242878560722"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="Hgn-sI-eMk">
@@ -531,7 +610,7 @@
         <scene sceneID="Tq3-qQ-d7i">
             <objects>
                 <navigationController id="Ug9-l1-zZ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="feed" image="list-fat-7" id="u83-hw-8zq"/>
+                    <tabBarItem key="tabBarItem" title="feed" image="feed" id="u83-hw-8zq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mZC-T9-fkh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -543,7 +622,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I00-Tl-FCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="-673"/>
+            <point key="canvasLocation" x="1950" y="-669"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nhC-Ey-a23">
@@ -607,7 +686,7 @@
         <scene sceneID="UJa-jg-K6Y">
             <objects>
                 <navigationController id="hBN-66-cvw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Requests" image="finger-point-top-7" id="4uX-6U-eLs"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="requests" id="4uX-6U-eLs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EYz-Bt-sy9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -619,17 +698,20 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tee-HX-Stp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="960"/>
+            <point key="canvasLocation" x="1950" y="959"/>
         </scene>
     </scenes>
     <resources>
-        <image name="esta128706-2-500x500" width="500" height="500"/>
-        <image name="finger-point-top-7" width="30" height="30"/>
-        <image name="home-7" width="30" height="30"/>
-        <image name="list-fat-7" width="30" height="30"/>
+        <image name="backgroundpastel" width="1300" height="1300"/>
+        <image name="bookings" width="30" height="30"/>
+        <image name="feed" width="30" height="30"/>
+        <image name="imagebackground" width="270" height="159"/>
+        <image name="keuken" width="473" height="546"/>
+        <image name="requests" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Nz4-fn-UhX"/>
-        <segue reference="8qn-ZF-4rg"/>
+        <segue reference="gw6-kT-5qP"/>
+        <segue reference="bCU-Fp-ykv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,12 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         currentUser = Auth.auth().currentUser
         facebookAccesToken = AccessToken.current
         
-        if currentUser != nil {
-            //
-        }
-        
         GMSServices.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
         GMSPlacesClient.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
+        
+        UINavigationBar.appearance().tintColor = UIColor.black
         
         return true
     }
