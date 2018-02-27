@@ -35,6 +35,10 @@
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/fototoevoegen.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/newfoodevent.PNG width="200">
 
 ### Dag 7: 27 februari
+* De current locatie verschijnt op de kaart en er kan ook een marker worden toegevoegd voor de plaats van het event.
+* Wanneer er op de save button wordt gedrukt, worden de coordinaten opgeslagen.
+* Het zou beter zijn om adres gegevens op te slaan, maar dit is wat ingewikkelder. Hier kijk ik later nog naar.
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/currentlocation.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/markerofeventplace.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/eventplacesaved.PNG width="200">
 
 ### Dag 8: 28 februari
 
