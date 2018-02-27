@@ -420,7 +420,7 @@
             </objects>
             <point key="canvasLocation" x="2849" y="-1455"/>
         </scene>
-        <!--New Food Event View Controller-->
+        <!--New food event-->
         <scene sceneID="RhZ-aB-w1L">
             <objects>
                 <viewController id="cUN-RO-IjQ" customClass="NewFoodEventViewController" customModule="DinebyMe_" customModuleProvider="target" sceneMemberID="viewController">
@@ -471,23 +471,12 @@
                                             <rect key="frame" x="31" y="314" width="216" height="120"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-2G-lNJ">
-                                            <rect key="frame" x="249" y="359" width="86" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll4-AT-tON">
+                                            <rect key="frame" x="249" y="262" width="96" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="13"/>
-                                            <state key="normal" title="upload image">
+                                            <state key="normal" title="add location">
                                                 <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="uploadimageButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="yZA-hr-avh"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll4-AT-tON">
-                                            <rect key="frame" x="40" y="262" width="295" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <state key="normal" title="Add location">
-                                                <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="addlocationButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="OYO-Fs-Jvw"/>
@@ -513,6 +502,24 @@
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-4K-Ffw">
+                                            <rect key="frame" x="40" y="262" width="201" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <color key="textColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-2G-lNJ">
+                                            <rect key="frame" x="249" y="359" width="86" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="13"/>
+                                            <state key="normal" title="upload image">
+                                                <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="uploadimageButtonTapped:" destination="cUN-RO-IjQ" eventType="touchUpInside" id="yZA-hr-avh"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <blurEffect style="extraLight"/>
@@ -520,12 +527,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sdp-bx-VLw"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New food event" id="QYU-Tw-ca7">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2CT-Ui-L0n"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addImage" destination="7Dg-X0-sfk" id="Qd3-es-wBk"/>
                         <outlet property="addlocationButton" destination="ll4-AT-tON" id="bjP-SJ-Uav"/>
                         <outlet property="addneweventButton" destination="ehc-rN-U1P" id="Rdz-Hx-o9s"/>
                         <outlet property="eventdateTextField" destination="nGH-97-X5T" id="4I8-0z-LCi"/>
                         <outlet property="eventtimeTextField" destination="Bcd-rh-4Ag" id="Czk-gh-H2Z"/>
+                        <outlet property="locationLabel" destination="Bnt-4K-Ffw" id="EpF-hA-1ds"/>
                         <outlet property="recipecuisineTextField" destination="Jlp-Tb-3k7" id="iko-h1-bCP"/>
                         <outlet property="recipenameTextField" destination="bWB-Se-mzk" id="57K-ii-Jtg"/>
                         <outlet property="recipepriceTextField" destination="ZKU-gl-M94" id="UgH-HX-aHK"/>
@@ -536,7 +547,7 @@
             </objects>
             <point key="canvasLocation" x="3733.5999999999999" y="-1455.0224887556224"/>
         </scene>
-        <!--Add Location View Controller-->
+        <!--Select event location-->
         <scene sceneID="XT5-6M-iQF">
             <objects>
                 <viewController id="0dB-MI-ExV" customClass="AddLocationViewController" customModule="DinebyMe_" customModuleProvider="target" sceneMemberID="viewController">
@@ -561,6 +572,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="X1T-Cq-LFc"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Select event location" id="7ed-2f-z4L">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dYc-sa-mSl">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="0dB-MI-ExV" id="24L-cI-uHr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="dYc-sa-mSl" id="MVA-Da-SXw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddv-SF-jfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

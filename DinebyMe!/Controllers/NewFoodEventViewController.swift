@@ -21,6 +21,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var addneweventButton: UIButton!
     @IBOutlet weak var eventdateTextField: UITextField! = nil
     @IBOutlet weak var eventtimeTextField: UITextField! = nil
+    @IBOutlet weak var locationLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
     let databaseReference = Database.database().reference()
@@ -35,16 +36,17 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         recipecuisineTextField.delegate = self
         recipepriceTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         recipepriceTextField.delegate = self
-        addlocationButton.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         eventtimeTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         eventtimeTextField.delegate = self
         eventdateTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
+        locationLabel.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         eventdateTextField.delegate = self
         
         addneweventButton.layer.cornerRadius = 4
         
         imagePicker.delegate = self
-        self.navigationItem.title = "New food event"
+        
+        locationLabel.text = "No location added yet"
     }
     
     @IBAction func addlocationButtonTapped(_ sender: AnyObject) {
@@ -94,21 +96,19 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
             self.present(alert, animated: true, completion: nil)
         } else {
             let userId = Auth.auth().currentUser?.uid
-            let key = databaseReference.childByAutoId().key
+//            let key = databaseReference.childByAutoId().key
             
             saveImageToFirebase() { url in
                 if url != nil {
-
-                    let newfoodEvent = ["Recipe name": self.recipenameTextField.text! as String,
-                                        "Recipe cuisine": self.recipecuisineTextField.text! as String,
-                                        "Recipe price": self.recipepriceTextField.text! as String,
-                                        "Event time": self.eventtimeTextField.text! as String,
-                                        "Event date": self.eventdateTextField.text! as String,
-                                        "addImage": url! as String
-                    ]
-                
-                    let firebaseFoodEvent = self.databaseReference.child("newEvent").child(userId!).child(key)
-                    firebaseFoodEvent.setValue(newfoodEvent)
+                    
+                    self.databaseReference.child("newEvent").child(userId!).child("test").updateChildValues(["Recipe name": self.recipenameTextField.text! as String,
+                                                                                                        "Recipe cuisine": self.recipecuisineTextField.text! as String,
+                                                                                                        "Recipe price": self.recipepriceTextField.text! as String,
+                                                                                                        "Event time": self.eventtimeTextField.text! as String,
+                                                                                                        "Event date": self.eventdateTextField.text! as String,
+                                                                                                        "addImage": url! as String
+                        ])
+                    
                     let alert = UIAlertController(title: "Succeed", message: "Food event was succesfully added to the feed!", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK",
                                                  style: .default)

@@ -8,25 +8,148 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
+import Firebase
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, GMSMapViewDelegate {
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    var mapView: GMSMapView!
+    var zoomLevel: Float = 14.0
+    
+    let marker = GMSMarker()
+    
+    var latcoordinate: Double!
+    var longcoordinate: Double!
+    
+    let databaseReference = Database.database().reference()
+    
+    // A default location to use when location permission is not granted.
+    let defaultLocation = CLLocation(latitude: 52.370216, longitude: 4.895168)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
         
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
+                                              longitude: defaultLocation.coordinate.longitude,
+                                              zoom: zoomLevel)
+        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.isMyLocationEnabled = true
+        mapView.delegate = self
+        
+        // Add the map to the view, hide it until we've got a location update.
+        view.addSubview(mapView)
+        mapView.isHidden = true
+    }
+    
+    func showMarker(position: CLLocationCoordinate2D) {
+        marker.position = position
+        marker.title = "Currently selected event place "
+        marker.snippet = "Move marker to change event place or save event place"
         marker.map = mapView
+        marker.isDraggable = true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude,
+                                              longitude: coordinate.longitude,
+                                              zoom: zoomLevel)
+        showMarker(position: camera.target)
         
+        latcoordinate = coordinate.latitude
+        longcoordinate = coordinate.longitude
+        
+        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: AnyObject) {
+        
+        if marker.map != nil {
+            let userId = Auth.auth().currentUser?.uid
+            
+            let newfoodEvent = [ "Recipe name": "",
+                                 "Recipe cuisine": "",
+                                 "Recipe price": "",
+                                 "Event time": "",
+                                 "Event date": "",
+                                 "addImage": "",
+                                 "Latitude location": latcoordinate,
+                                 "Longitude location": longcoordinate
+                
+                ] as [String : Any]
+            
+            let firebaseFoodEvent = self.databaseReference.child("newEvent").child(userId!).child("test")
+            firebaseFoodEvent.setValue(newfoodEvent)
+            
+            let alert = UIAlertController(title: "Location saved", message: "You set the location of the event succesfully.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "You have not placed a marker.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+}
+
+extension AddLocationViewController: CLLocationManagerDelegate {
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: zoomLevel)
+        
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+            mapView.isHidden = false
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+            mapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+            mapView.isHidden = false
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
     }
 }
 
