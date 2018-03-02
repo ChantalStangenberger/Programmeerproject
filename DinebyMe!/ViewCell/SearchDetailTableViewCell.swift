@@ -10,6 +10,9 @@ import UIKit
 
 class SearchDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var addImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var recipenameLabel: UILabel!
+    @IBOutlet weak var recipepriceLabel: UILabel!
     
 }

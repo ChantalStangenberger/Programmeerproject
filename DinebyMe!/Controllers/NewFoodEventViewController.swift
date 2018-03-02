@@ -45,10 +45,17 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         addneweventButton.layer.cornerRadius = 4
         
         imagePicker.delegate = self
-        
-        locationLabel.text = "No location added yet"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if globalStruct.latitude == 0.0 || globalStruct.longitude == 0.0 {
+            locationLabel.text = "No location added yet"
+        } else {
+            locationLabel.text = "Location added"
+            locationLabel.textColor = UIColor.black
+        }
+    }
+
     @IBAction func addlocationButtonTapped(_ sender: AnyObject) {
         return
     }
@@ -88,7 +95,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func addneweventButtonTapped(_ sender: AnyObject) {
-        if recipenameTextField.text! == "" || recipecuisineTextField.text! == "" || recipepriceTextField.text! == "" || eventdateTextField.text! == "" || eventtimeTextField.text! == "" || addImage.image == image {
+        if recipenameTextField.text! == "" || recipecuisineTextField.text! == "" || recipepriceTextField.text! == "" || eventdateTextField.text! == "" || eventtimeTextField.text! == "" || addImage.image == image || locationLabel.text == "No location added yet" {
             let alert = UIAlertController(title: "Something went wrong", message: "Not all fields are completed", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK",
                                          style: .default)
@@ -96,19 +103,14 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
             self.present(alert, animated: true, completion: nil)
         } else {
             let userId = Auth.auth().currentUser?.uid
-//            let key = databaseReference.childByAutoId().key
+            let key = databaseReference.childByAutoId().key
             
             saveImageToFirebase() { url in
                 if url != nil {
+                    let values = ["Recipename": self.recipenameTextField.text! as String, "Recipecuisine": self.recipecuisineTextField.text! as String, "Recipeprice": self.recipepriceTextField.text! as String, "Eventtime": self.eventtimeTextField.text! as String, "Eventdate": self.eventdateTextField.text! as String, "Latitudelocation": globalStruct.latitude, "Longitudelocation": globalStruct.longitude, "addImage": url! as String, "id": userId! as String ] as [String : Any]
                     
-                    self.databaseReference.child("newEvent").child(userId!).child("test").updateChildValues(["Recipe name": self.recipenameTextField.text! as String,
-                                                                                                        "Recipe cuisine": self.recipecuisineTextField.text! as String,
-                                                                                                        "Recipe price": self.recipepriceTextField.text! as String,
-                                                                                                        "Event time": self.eventtimeTextField.text! as String,
-                                                                                                        "Event date": self.eventdateTextField.text! as String,
-                                                                                                        "addImage": url! as String
-                        ])
-                    
+                    self.databaseReference.child("newEvent").child(key).setValue(values)
+                        
                     let alert = UIAlertController(title: "Succeed", message: "Food event was succesfully added to the feed!", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK",
                                                  style: .default)
@@ -121,7 +123,10 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                     self.eventtimeTextField.text = nil
                     self.eventdateTextField.text = nil
                     self.addImage.image = self.image
-                    
+                    self.locationLabel.text = "No location added yet"
+                    self.locationLabel.textColor = UIColor(red: 191/255, green: 191/255, blue: 198/255, alpha: 1)
+                    globalStruct.latitude = 0.0
+                    globalStruct.longitude = 0.0
                 }
             }
         }

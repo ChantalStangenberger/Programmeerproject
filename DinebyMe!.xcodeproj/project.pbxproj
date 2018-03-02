@@ -18,6 +18,7 @@
 		5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A39F2034450E00E73BF4 /* BeginViewController.swift */; };
 		5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A1203455D300E73BF4 /* LoginViewController.swift */; };
 		5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A3203455E800E73BF4 /* SignupViewController.swift */; };
+		506EC26C20462B0000B02143 /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506EC26B20462B0000B02143 /* NewEvent.swift */; };
 		509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AACB120443E1600890B24 /* AddLocationViewController.swift */; };
 		50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */; };
 		50C73CA0203DA8A500A5A9D5 /* SearchDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */; };
@@ -28,6 +29,7 @@
 		50C73CAA203DA97D00A5A9D5 /* BookingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */; };
 		50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */; };
 		50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAF203F0C2200A5A9D5 /* Users.swift */; };
+		50C9D42F20489F9300B8C5E0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9D42E20489F9300B8C5E0 /* Global.swift */; };
 		B9106C85B8FFAAA79FAF23ED /* Pods_DinebyMe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544087BE5ABB8FF9B19E13B3 /* Pods_DinebyMe_.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,7 @@
 		5008A39F2034450E00E73BF4 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		5008A3A1203455D300E73BF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5008A3A3203455E800E73BF4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		506EC26B20462B0000B02143 /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 		509AACB120443E1600890B24 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsTableViewController.swift; sourceTree = "<group>"; };
 		50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewCell.swift; sourceTree = "<group>"; };
 		50C73CAF203F0C2200A5A9D5 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		50C9D42E20489F9300B8C5E0 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		544087BE5ABB8FF9B19E13B3 /* Pods_DinebyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DinebyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782D3D37A0A40F42A744968D /* Pods-DinebyMe!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinebyMe!.release.xcconfig"; path = "Pods/Target Support Files/Pods-DinebyMe!/Pods-DinebyMe!.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				50C73CAF203F0C2200A5A9D5 /* Users.swift */,
+				50C9D42E20489F9300B8C5E0 /* Global.swift */,
+				506EC26B20462B0000B02143 /* NewEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */,
 				50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */,
 				5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */,
+				506EC26C20462B0000B02143 /* NewEvent.swift in Sources */,
 				50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */,
 				50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */,
 				509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */,
@@ -441,6 +448,7 @@
 				50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */,
 				5008A3742034410300E73BF4 /* DinebyMe_.xcdatamodeld in Sources */,
 				5008A36C2034410300E73BF4 /* AppDelegate.swift in Sources */,
+				50C9D42F20489F9300B8C5E0 /* Global.swift in Sources */,
 				50C73CA8203DA96C00A5A9D5 /* RequestsTableViewController.swift in Sources */,
 				50C73CA4203DA92100A5A9D5 /* RecipeDetailViewController.swift in Sources */,
 			);

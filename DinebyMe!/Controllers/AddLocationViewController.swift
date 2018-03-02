@@ -22,9 +22,6 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
     
     let marker = GMSMarker()
     
-    var latcoordinate: Double!
-    var longcoordinate: Double!
-    
     let databaseReference = Database.database().reference()
     
     // A default location to use when location permission is not granted.
@@ -52,6 +49,8 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         // Add the map to the view, hide it until we've got a location update.
         view.addSubview(mapView)
         mapView.isHidden = true
+        
+        showCurrentMarkerPosition()
     }
     
     func showMarker(position: CLLocationCoordinate2D) {
@@ -68,36 +67,21 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
                                               zoom: zoomLevel)
         showMarker(position: camera.target)
         
-        latcoordinate = coordinate.latitude
-        longcoordinate = coordinate.longitude
-        
-        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+        globalStruct.latcoordinate = coordinate.latitude
+        globalStruct.longcoordinate = coordinate.longitude
     }
     
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
-        
         if marker.map != nil {
-            let userId = Auth.auth().currentUser?.uid
-            
-            let newfoodEvent = [ "Recipe name": "",
-                                 "Recipe cuisine": "",
-                                 "Recipe price": "",
-                                 "Event time": "",
-                                 "Event date": "",
-                                 "addImage": "",
-                                 "Latitude location": latcoordinate,
-                                 "Longitude location": longcoordinate
-                
-                ] as [String : Any]
-            
-            let firebaseFoodEvent = self.databaseReference.child("newEvent").child(userId!).child("test")
-            firebaseFoodEvent.setValue(newfoodEvent)
-            
             let alert = UIAlertController(title: "Location saved", message: "You set the location of the event succesfully.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK",
                                          style: .default)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
+            
+            globalStruct.latitude = globalStruct.latcoordinate
+            globalStruct.longitude = globalStruct.longcoordinate
+            
         } else {
             let alert = UIAlertController(title: "Error", message: "You have not placed a marker.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK",
@@ -107,6 +91,14 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    func showCurrentMarkerPosition() {
+        if globalStruct.latitude != 0.0 || globalStruct.longitude != 0.0 {
+            let camera = GMSCameraPosition.camera(withLatitude: globalStruct.latitude,
+                                                  longitude: globalStruct.longitude,
+                                                  zoom: zoomLevel)
+            showMarker(position: camera.target)
+        }
+    }
 }
 
 extension AddLocationViewController: CLLocationManagerDelegate {
@@ -114,7 +106,6 @@ extension AddLocationViewController: CLLocationManagerDelegate {
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-        print("Location: \(location)")
         
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
