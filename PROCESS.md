@@ -40,7 +40,7 @@
 * Het zou beter zijn om adres gegevens op te slaan, maar dit is wat ingewikkelder. Hier kijk ik later nog naar.
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/currentlocation.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/markerofeventplace.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/eventplacesaved.PNG width="200">
 
-### Dag 8: 28 februari && dag 9: 1 maart
+### Dag 8: 28 februari & dag 9: 1 maart
 * Helaas deze twee dagen niet aan het project kunnen werken, omdat ik ziek was!
 
 ### Dag 10: 2 maart
@@ -49,10 +49,4 @@
 * Ik moet nog uitzoeken hoe firebase storage precies werkt. Nu worden de foto's overschreden en ik moet natuurlijk verschillende afbeeldingen kunnen laden.
 * Ook gewerkt aan book event.
 
-## Week IIII - 5 maart t/m 9 maart 
-
-### Dag 11: 5 maart
-
-### Dag 12: 6 maart
-
-### Dag 13: 7 maart
+## Week IIII 
