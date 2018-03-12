@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import GoogleMaps
 
 class NewFoodEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -51,8 +52,8 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         if globalStruct.latitude == 0.0 || globalStruct.longitude == 0.0 {
             locationLabel.text = "No location added yet"
         } else {
-            locationLabel.text = "Location added"
-            locationLabel.textColor = UIColor.black
+            let savedLocation = CLLocationCoordinate2D(latitude: globalStruct.latitude, longitude: globalStruct.longitude)
+            self.reverseGeocodeCoordinate(coordinate: savedLocation)
         }
     }
 
@@ -141,5 +142,23 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
+    }
+    
+    private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+        
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            guard let address = response?.firstResult(), let lines = address.lines else {
+                return
+            }
+            
+            self.locationLabel.text = lines.joined(separator: "\n")
+            self.locationLabel.textColor = UIColor.black
+            
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }

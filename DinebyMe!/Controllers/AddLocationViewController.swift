@@ -5,15 +5,18 @@
 //  Created by Chantal Stangenberger on 26-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  https://www.raywenderlich.com/179565/google-maps-ios-sdk-tutorial-getting-started
+//
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
 import Firebase
 
 class AddLocationViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var mapsView: UIView!
+    @IBOutlet weak var adressLabel: UILabel!
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -32,7 +35,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
@@ -46,8 +49,10 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         
+        adressLabel.contentMode = .scaleAspectFit
+        
         // Add the map to the view, hide it until we've got a location update.
-        view.addSubview(mapView)
+        mapsView.addSubview(mapView)
         mapView.isHidden = true
         
         showCurrentMarkerPosition()
@@ -58,7 +63,6 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         marker.title = "Currently selected event place "
         marker.snippet = "Move marker to change event place or save event place"
         marker.map = mapView
-        marker.isDraggable = true
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
@@ -66,6 +70,8 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
                                               longitude: coordinate.longitude,
                                               zoom: zoomLevel)
         showMarker(position: camera.target)
+        
+        self.reverseGeocodeCoordinate(coordinate: coordinate)
         
         globalStruct.latcoordinate = coordinate.latitude
         globalStruct.longcoordinate = coordinate.longitude
@@ -97,8 +103,27 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
                                                   longitude: globalStruct.longitude,
                                                   zoom: zoomLevel)
             showMarker(position: camera.target)
+            self.reverseGeocodeCoordinate(coordinate: camera.target)
         }
     }
+    
+    private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            guard let address = response?.firstResult(), let lines = address.lines else {
+                return
+            }
+            
+            self.adressLabel.text = lines.joined(separator: "\n")
+            
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+
 }
 
 extension AddLocationViewController: CLLocationManagerDelegate {
@@ -143,4 +168,3 @@ extension AddLocationViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
 }
-

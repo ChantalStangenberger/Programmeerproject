@@ -308,52 +308,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchdetailCell" rowHeight="223" id="2cu-5M-dIC" customClass="SearchDetailTableViewCell" customModule="DinebyMe_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="223"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchdetailCell" rowHeight="171" id="2cu-5M-dIC" customClass="SearchDetailTableViewCell" customModule="DinebyMe_" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="171"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2cu-5M-dIC" id="v3r-Ru-zOQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iw5-Aa-Xtn">
-                                            <rect key="frame" x="127.5" y="0.0" width="247.5" height="166"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="206" height="170.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="170.5" id="ReV-OF-kFD"/>
+                                                <constraint firstAttribute="width" constant="206" id="fz1-ws-Qq7"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbf-kH-rc8">
-                                            <rect key="frame" x="219" y="174" width="127" height="22.5"/>
+                                            <rect key="frame" x="220" y="0.0" width="127" height="22.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22.5" id="1tU-oq-oHQ"/>
+                                                <constraint firstAttribute="width" constant="127" id="Y0t-1F-00z"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-hz-Fg6">
-                                            <rect key="frame" x="16" y="0.0" width="103.5" height="22.5"/>
+                                            <rect key="frame" x="232" y="47" width="103.5" height="22.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22.5" id="4OK-jh-idH"/>
+                                                <constraint firstAttribute="width" constant="103.5" id="i92-Dv-kZ5"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysq-Lp-9EW">
-                                            <rect key="frame" x="16" y="30.5" width="166" height="22.5"/>
+                                            <rect key="frame" x="232" y="100" width="104" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22.5" id="HBI-17-tr5"/>
+                                                <constraint firstAttribute="width" constant="104" id="yXR-1o-qit"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Iw5-Aa-Xtn" firstAttribute="top" secondItem="v3r-Ru-zOQ" secondAttribute="top" id="4Ka-Xz-ZRg"/>
-                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="top" secondItem="LbG-hz-Fg6" secondAttribute="bottom" constant="8" id="4cE-us-VhR"/>
-                                        <constraint firstItem="LbG-hz-Fg6" firstAttribute="leading" secondItem="v3r-Ru-zOQ" secondAttribute="leading" constant="16" id="9bi-Pr-GA7"/>
-                                        <constraint firstItem="LbG-hz-Fg6" firstAttribute="top" secondItem="v3r-Ru-zOQ" secondAttribute="top" id="ETU-fD-FoK"/>
-                                        <constraint firstItem="Iw5-Aa-Xtn" firstAttribute="leading" secondItem="LbG-hz-Fg6" secondAttribute="trailing" constant="8" id="FPy-b7-EtG"/>
-                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="top" secondItem="LbG-hz-Fg6" secondAttribute="bottom" constant="8" id="Fjs-aP-XMP"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zbf-kH-rc8" secondAttribute="trailing" constant="13" id="PEq-7v-0dS"/>
-                                        <constraint firstAttribute="trailing" secondItem="Iw5-Aa-Xtn" secondAttribute="trailing" id="Rp9-ba-mk2"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="zbf-kH-rc8" secondAttribute="bottom" constant="15.5" id="Rtb-3v-77h"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ysq-Lp-9EW" secondAttribute="bottom" constant="159" id="Zi8-Y9-y4b"/>
-                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="top" secondItem="Iw5-Aa-Xtn" secondAttribute="bottom" constant="8" id="ZzC-FP-CRv"/>
-                                        <constraint firstItem="Iw5-Aa-Xtn" firstAttribute="leading" secondItem="LbG-hz-Fg6" secondAttribute="trailing" constant="8" id="bme-wr-c8r"/>
-                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="leading" secondItem="v3r-Ru-zOQ" secondAttribute="leadingMargin" constant="203" id="lub-Xz-i28"/>
-                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="top" secondItem="Iw5-Aa-Xtn" secondAttribute="bottom" constant="8" id="qde-9e-Vjm"/>
-                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="leading" secondItem="v3r-Ru-zOQ" secondAttribute="leadingMargin" id="rCr-XM-8fO"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Ysq-Lp-9EW" secondAttribute="trailing" constant="177" id="uKv-G3-fnp"/>
+                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="leading" secondItem="Iw5-Aa-Xtn" secondAttribute="trailing" constant="26" id="BDQ-U1-EcG"/>
+                                        <constraint firstItem="Iw5-Aa-Xtn" firstAttribute="leading" secondItem="v3r-Ru-zOQ" secondAttribute="leading" id="Jto-Ae-EAU"/>
+                                        <constraint firstItem="Iw5-Aa-Xtn" firstAttribute="top" secondItem="v3r-Ru-zOQ" secondAttribute="top" id="NOS-g1-YLF"/>
+                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="top" secondItem="LbG-hz-Fg6" secondAttribute="bottom" constant="30.5" id="R4t-Mo-l3f"/>
+                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="leading" secondItem="Iw5-Aa-Xtn" secondAttribute="trailing" constant="14" id="RBC-x9-D0q"/>
+                                        <constraint firstAttribute="bottom" secondItem="Iw5-Aa-Xtn" secondAttribute="bottom" id="RmH-HO-a9f"/>
+                                        <constraint firstAttribute="trailing" secondItem="zbf-kH-rc8" secondAttribute="trailing" constant="28" id="VeL-7o-kOd"/>
+                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="leading" secondItem="Iw5-Aa-Xtn" secondAttribute="trailing" constant="14" id="Yv2-ju-tvH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ysq-Lp-9EW" secondAttribute="trailing" constant="23" id="c7w-Gm-i14"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ysq-Lp-9EW" secondAttribute="bottom" constant="37" id="djs-kv-rz9"/>
+                                        <constraint firstItem="zbf-kH-rc8" firstAttribute="top" secondItem="v3r-Ru-zOQ" secondAttribute="top" id="dkm-pD-rYM"/>
+                                        <constraint firstItem="LbG-hz-Fg6" firstAttribute="top" secondItem="zbf-kH-rc8" secondAttribute="bottom" constant="24.5" id="fVD-H7-Am9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LbG-hz-Fg6" secondAttribute="trailing" constant="23.5" id="hVH-X0-B6S"/>
+                                        <constraint firstItem="LbG-hz-Fg6" firstAttribute="top" secondItem="zbf-kH-rc8" secondAttribute="bottom" constant="24.5" id="hno-7M-yVW"/>
+                                        <constraint firstItem="LbG-hz-Fg6" firstAttribute="leading" secondItem="Iw5-Aa-Xtn" secondAttribute="trailing" constant="26" id="kat-sf-wbK"/>
+                                        <constraint firstItem="Ysq-Lp-9EW" firstAttribute="top" secondItem="LbG-hz-Fg6" secondAttribute="bottom" constant="30.5" id="uh2-V3-waH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -480,28 +496,28 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Event time (example 22:30)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bcd-rh-4Ag">
                                             <rect key="frame" x="40" y="217" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe cuisine" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jlp-Tb-3k7">
                                             <rect key="frame" x="40" y="82" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe price (€)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-gl-M94">
                                             <rect key="frame" x="40" y="127" width="295" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagebackground" translatesAutoresizingMaskIntoConstraints="NO" id="7Dg-X0-sfk">
                                             <rect key="frame" x="31" y="314" width="216" height="120"/>
@@ -536,7 +552,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-4K-Ffw">
                                             <rect key="frame" x="40" y="262" width="201" height="30"/>
@@ -604,6 +620,13 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enZ-Zl-faB">
+                                <rect key="frame" x="8" y="67" width="359" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="X1T-Cq-LFc"/>
@@ -616,6 +639,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adressLabel" destination="enZ-Zl-faB" id="K7C-Jy-FRX"/>
+                        <outlet property="mapsView" destination="iDa-lG-Ao1" id="7TM-cP-p19"/>
                         <outlet property="saveButton" destination="dYc-sa-mSl" id="MVA-Da-SXw"/>
                     </connections>
                 </viewController>
@@ -628,33 +653,147 @@
             <objects>
                 <viewController id="r0g-26-FDX" customClass="RecipeDetailViewController" customModule="DinebyMe_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFX-yN-dwN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOq-yM-XTw">
-                                <rect key="frame" x="164" y="506" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="M3I-p3-VM8" kind="show" id="f2B-Ax-kyq"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnv-rd-GUU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQ4-Yn-urD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundpastel" translatesAutoresizingMaskIntoConstraints="NO" id="wgi-lw-KOr">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1000" id="btj-Bh-wDw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pg9-6S-HLQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="p4l-l2-itf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-XX-JQv">
+                                                            <rect key="frame" x="40" y="223" width="294" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cuisine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogl-Wr-ucA">
+                                                            <rect key="frame" x="40" y="261" width="125" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfe-sB-A84">
+                                                            <rect key="frame" x="40" y="312" width="94" height="29"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCv-4j-YdW">
+                                                            <rect key="frame" x="249" y="261" width="85" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-1V-2Uu">
+                                                            <rect key="frame" x="188" y="312" width="146" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbm-CU-oNb">
+                                                            <rect key="frame" x="40" y="394" width="294" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3g-oT-MKx">
+                                                            <rect key="frame" x="18" y="442" width="340" height="440"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXI-yT-jeT">
+                                                            <rect key="frame" x="30" y="36" width="316" height="156"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBA-Gb-voH">
+                                                            <rect key="frame" x="41" y="913" width="294" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                            <state key="normal" title="Request to book">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <segue destination="M3I-p3-VM8" kind="show" identifier="bookeventSegue" id="DIb-Fk-zqF"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1000" id="Gnz-Hz-L4a" userLabel="height = 1000"/>
+                                                </constraints>
+                                                <blurEffect style="extraLight"/>
+                                            </visualEffectView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wgi-lw-KOr" firstAttribute="leading" secondItem="fQ4-Yn-urD" secondAttribute="leading" id="90J-XK-0QG"/>
+                                            <constraint firstAttribute="height" constant="1000" id="GTY-6h-7Lf" userLabel="height = 1000"/>
+                                            <constraint firstItem="Pg9-6S-HLQ" firstAttribute="top" secondItem="fQ4-Yn-urD" secondAttribute="top" id="Jtw-77-YpD"/>
+                                            <constraint firstAttribute="trailing" secondItem="wgi-lw-KOr" secondAttribute="trailing" id="L4R-H9-jEe"/>
+                                            <constraint firstItem="Pg9-6S-HLQ" firstAttribute="leading" secondItem="fQ4-Yn-urD" secondAttribute="leading" id="hiK-zu-cCK"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pg9-6S-HLQ" secondAttribute="trailing" id="kwH-pi-Fsf"/>
+                                            <constraint firstItem="wgi-lw-KOr" firstAttribute="top" secondItem="fQ4-Yn-urD" secondAttribute="top" id="lIv-VS-fse"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fQ4-Yn-urD" secondAttribute="bottom" id="4vS-rp-Dzi"/>
+                                    <constraint firstItem="fQ4-Yn-urD" firstAttribute="leading" secondItem="Bnv-rd-GUU" secondAttribute="leading" id="PAL-rK-ADP"/>
+                                    <constraint firstItem="fQ4-Yn-urD" firstAttribute="top" secondItem="Bnv-rd-GUU" secondAttribute="top" id="tAq-SZ-Ui0"/>
+                                    <constraint firstAttribute="trailing" secondItem="fQ4-Yn-urD" secondAttribute="trailing" id="wPJ-HZ-FVg"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WiG-lr-eoF" firstAttribute="trailing" secondItem="dOq-yM-XTw" secondAttribute="trailing" constant="165" id="ZUj-Md-RMV"/>
-                            <constraint firstItem="WiG-lr-eoF" firstAttribute="bottom" secondItem="dOq-yM-XTw" secondAttribute="bottom" constant="82" id="eLy-Ro-0dc"/>
-                            <constraint firstItem="dOq-yM-XTw" firstAttribute="top" secondItem="WiG-lr-eoF" secondAttribute="top" constant="442" id="j8W-pd-cIT"/>
-                            <constraint firstItem="dOq-yM-XTw" firstAttribute="leading" secondItem="WiG-lr-eoF" secondAttribute="leading" constant="164" id="leV-FU-BhQ"/>
+                            <constraint firstItem="fQ4-Yn-urD" firstAttribute="width" secondItem="PFX-yN-dwN" secondAttribute="width" id="G9X-f1-IP9"/>
+                            <constraint firstItem="Bnv-rd-GUU" firstAttribute="top" secondItem="WiG-lr-eoF" secondAttribute="top" id="GE5-Wc-UmO"/>
+                            <constraint firstItem="Bnv-rd-GUU" firstAttribute="trailing" secondItem="WiG-lr-eoF" secondAttribute="trailing" id="JCH-1I-XMZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Bnv-rd-GUU" secondAttribute="bottom" id="ON6-Uq-Sbi"/>
+                            <constraint firstItem="Bnv-rd-GUU" firstAttribute="leading" secondItem="WiG-lr-eoF" secondAttribute="leading" id="p5V-xU-T8q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WiG-lr-eoF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Event details" id="kUx-L4-3z8">
                         <barButtonItem key="backBarButtonItem" title=" " id="SWn-lL-T3t"/>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="mbm-CU-oNb" id="jCa-J7-gKy"/>
+                        <outlet property="mapView" destination="y3g-oT-MKx" id="1O0-Jg-LQ0"/>
+                        <outlet property="recipeImage" destination="rXI-yT-jeT" id="Gbm-yP-UUD"/>
+                        <outlet property="recipecuisineLabel" destination="Ogl-Wr-ucA" id="f5Q-Lz-fqR"/>
+                        <outlet property="recipedateLabel" destination="EWV-1V-2Uu" id="NGf-r4-6oM"/>
+                        <outlet property="recipenameLabel" destination="v0m-XX-JQv" id="2nm-m5-E1k"/>
+                        <outlet property="recipepriceLabel" destination="hfe-sB-A84" id="74g-ks-tzd"/>
+                        <outlet property="recipetimeLabel" destination="mCv-4j-YdW" id="lgB-e9-7eO"/>
+                        <outlet property="requesttobookButton" destination="zBA-Gb-voH" id="jho-aW-K1a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8F-B4-Q8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="-673"/>
+            <point key="canvasLocation" x="3733.5999999999999" y="-408.39580209895058"/>
         </scene>
         <!--Book event-->
         <scene sceneID="xlm-3Z-tWj">
@@ -709,6 +848,7 @@
                                             <rect key="frame" x="40" y="205" width="294" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                            <color key="textColor" red="0.58039215686274503" green="0.090196078431372548" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkz-Fe-F0P">

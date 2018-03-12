@@ -44,6 +44,6 @@ struct Users {
             _email = email
         }
         
-        _Ref = Database.database().reference().child("user").child(_key)
+        _Ref = Database.database().reference().child("users").child(_key)
     }
 }

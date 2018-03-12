@@ -24,11 +24,9 @@ class SearchDetailTableViewController: UITableViewController {
         imageView.addSubview(blurView)
         self.tableView.backgroundView = imageView
         
-        tableView.separatorStyle = .none
+        tableView.separatorColor = UIColor.darkGray
         
         getNewEvent()
-        
-        print(newEvent)
     }
     
     func getNewEvent () {
@@ -63,8 +61,6 @@ class SearchDetailTableViewController: UITableViewController {
         cell.backgroundColor = .clear
     }
     
-    // segue to MovieDetailViewController with details of the movies
-    // geen idee of dit zo werkt!!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recipedetailSegue" {
             let cell = sender as! UITableViewCell
@@ -74,6 +70,11 @@ class SearchDetailTableViewController: UITableViewController {
             recipeDetailViewController.newEvent = newEvent
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        globalStruct.selectedUser = newEvent[indexPath.row].id
+    }
+    
 }
 
 extension UIImageView {

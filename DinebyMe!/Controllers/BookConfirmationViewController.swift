@@ -18,6 +18,8 @@ class BookConfirmationViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var confirmationButton: UIButton!
     
+    let dataStorage = DataStorage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,5 +30,26 @@ class BookConfirmationViewController: UIViewController {
         messageTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         confirmationButton.layer.cornerRadius = 4
         
+        updateUI()
+        
+    }
+    
+    // updates scene
+    func updateUI() {
+        recipenameLabel.text = dataStorage.sharedInstance.recipename
+        recipepriceLabel.text = dataStorage.sharedInstance.recipeprice
+        eventdateLabel.text = dataStorage.sharedInstance.recipedate
+        textfieldinformationLabel.text = dataStorage.sharedInstance.id
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        self.view.endEditing(true)
     }
 }

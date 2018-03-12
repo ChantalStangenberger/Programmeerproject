@@ -13,4 +13,5 @@ struct globalStruct {
     static var longcoordinate = Double()
     static var latitude = Double()
     static var longitude = Double()
+    static var selectedUser = String()
 }

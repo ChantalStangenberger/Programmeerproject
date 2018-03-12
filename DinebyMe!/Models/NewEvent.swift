@@ -16,6 +16,9 @@ class NewEvent {
     private var _recipeName: String!
     private var _recipePrice: String!
     private var _addImage: String!
+    private var _latitudeLocation: Double!
+    private var _longitudeLocation: Double!
+    private var _id: String!
     private var _eventKey:  String!
     private var _eventRef: DatabaseReference!
     
@@ -42,17 +45,33 @@ class NewEvent {
     var addImage: String {
         return _addImage
     }
+    
+    var latitudeLocation: Double {
+        return _latitudeLocation
+    }
+    
+    var longitudeLocation: Double {
+        return _longitudeLocation
+    }
+    
+    var id: String {
+        return _id
+    }
+    
     var eventKey: String {
         return _eventKey
     }
     
-    init(eventDate: String, eventTime: String, recipeCuisine: String, recipeName: String, recipePrice: String, addImage: String) {
+    init(eventDate: String, eventTime: String, recipeCuisine: String, recipeName: String, recipePrice: String, addImage: String, latitudeLocation: Double, longitudeLocation: Double, id: String) {
         _eventDate = eventDate
         _eventTime = eventTime
         _recipeCuisine = recipeCuisine
         _recipeName = recipeName
         _recipePrice = recipePrice
         _addImage = addImage
+        _latitudeLocation = latitudeLocation
+        _longitudeLocation = longitudeLocation
+        _id = id
     }
     
     init(eventKey: String, eventData: Dictionary<String, AnyObject>) {
@@ -81,6 +100,18 @@ class NewEvent {
         
         if let addImage = eventData["addImage"] as? String {
             _addImage = addImage
+        }
+        
+        if let latitudeLocation = eventData["Latitudelocation"] as? Double {
+            _latitudeLocation = latitudeLocation
+        }
+        
+        if let longitudeLocation = eventData["Longitudelocation"] as? Double {
+            _longitudeLocation = longitudeLocation
+        }
+        
+        if let id = eventData["id"] as? String {
+            _id = id
         }
         
         _eventRef = Database.database().reference().child("newEvent").child(_eventKey)
