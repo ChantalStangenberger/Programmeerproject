@@ -1,7 +1,5 @@
 # Process book
 
-## Week II - 19 februari t/m 23 februari
-
 ### Dag 1: 19 februari
 * Vorige week heb ik de navigation flow al gemaakt voor de prototype versie.
 * Begonnen met het maken van de login/signup schermen.
@@ -24,8 +22,6 @@
 * Gezorgd dat de google zoekbalk goed werkt met behulp van google places.
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/googleplaces%20zoekbalk.PNG width="200">
 
-## Week III - 26 februari t/m 2 maart
-
 ### Dag 6: 26 februari
 * De indeling van het inloggen heb ik veranderd en daarnaast ook de layout aangepast.
 * Ook heb ik alvast een app icoon gemaakt.
@@ -40,13 +36,14 @@
 * Het zou beter zijn om adres gegevens op te slaan, maar dit is wat ingewikkelder. Hier kijk ik later nog naar.
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/currentlocation.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/markerofeventplace.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/eventplacesaved.PNG width="200">
 
-### Dag 8: 28 februari & dag 9: 1 maart
-* Helaas deze twee dagen niet aan het project kunnen werken, omdat ik ziek was!
-
-### Dag 10: 2 maart
+### Dag 8: 2 maart
 * Wat foutjes gehaald met betrekking tot select event location. Gezorgd dat er maar één marker te zien is op de kaart en dat wanneer de marker wordt gesaved de marker te zien blijft op dezelfde positie wanneer er geswitcht wordt tussen de schermen.
 * Gezorgd dat overview events worden weergeven.
 * Ik moet nog uitzoeken hoe firebase storage precies werkt. Nu worden de foto's overschreden en ik moet natuurlijk verschillende afbeeldingen kunnen laden.
 * Ook gewerkt aan book event.
 
-## Week IIII 
+### Dag 9: 13 maart
+* Gezorg dat nu ook het adres te zien is van de geselecteerde locatie bij event location. 
+* Daarnaast gewerkt aan de eventdetails pagina, deze laat nu ook de locatie van het evenement zien met een grote cirkel, zodat de gebruikers van de app niet ieders adres kunnen achterhalen. 
+* Ook aan de bookingconfirmation pagina gewerkt. Hierbij wil ik de naam van de organisator van het event weergeven in een label. Dit lukte nog niet zo goed. 
+
