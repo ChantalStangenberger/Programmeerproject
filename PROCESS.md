@@ -42,8 +42,13 @@
 * Ik moet nog uitzoeken hoe firebase storage precies werkt. Nu worden de foto's overschreden en ik moet natuurlijk verschillende afbeeldingen kunnen laden.
 * Ook gewerkt aan book event.
 
-### Dag 9: 13 maart
+### Dag 9: 12 maart
 * Gezorg dat nu ook het adres te zien is van de geselecteerde locatie bij event location. 
 * Daarnaast gewerkt aan de eventdetails pagina, deze laat nu ook de locatie van het evenement zien met een grote cirkel, zodat de gebruikers van de app niet ieders adres kunnen achterhalen. 
-* Ook aan de bookingconfirmation pagina gewerkt. Hierbij wil ik de naam van de organisator van het event weergeven in een label. Dit lukte nog niet zo goed. 
+* Ook aan de bookingconfirmation pagina gewerkt. Hierbij wil ik de naam van de organisator van het event weergeven in een label. Dit lukte nog niet zo goed.
+
+### Dag 10: 14 maart
+* Vandaag vooral veel aan de layout gedaan, overal constraints toegevoegd. 
+* Ik kwam erachter dat ik een UItextview moet gebruiken ipv een UItextfield om de gebruiker meerdere regels te laten typen. Dit heb ik veranderd en hier ook wat informatie bij gezocht (maximum aantaal regels).
+
 
