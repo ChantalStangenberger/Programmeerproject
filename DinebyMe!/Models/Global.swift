@@ -13,5 +13,9 @@ struct globalStruct {
     static var longcoordinate = Double()
     static var latitude = Double()
     static var longitude = Double()
-    static var selectedUser = String()
+    static var recipename = String()
+    static var recipecuisine = String()
+    static var recipeprice = String()
+    static var eventdate = String()
+    static var eventtime = String()
 }

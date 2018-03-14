@@ -61,7 +61,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
     func showMarker(position: CLLocationCoordinate2D) {
         marker.position = position
         marker.title = "Currently selected event place "
-        marker.snippet = "Move marker to change event place or save event place"
+        marker.snippet = "Replace marker to change event place or save event place"
         marker.map = mapView
     }
     

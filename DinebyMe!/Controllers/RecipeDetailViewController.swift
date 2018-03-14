@@ -42,10 +42,8 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         
         let camera = GMSCameraPosition.camera(withLatitude: newEvent.latitudeLocation, longitude: newEvent.longitudeLocation, zoom: zoomLevel)
         
-        mapsView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-        mapsView.settings.scrollGestures = false
-        mapsView.settings.zoomGestures = false
-        mapsView.settings.rotateGestures = false
+        mapsView = GMSMapView.map(withFrame: mapView.bounds, camera: camera)
+        mapsView.settings.setAllGesturesEnabled(false)
         mapsView.delegate = self
         
         mapView.addSubview(mapsView)

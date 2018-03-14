@@ -70,11 +70,6 @@ class SearchDetailTableViewController: UITableViewController {
             recipeDetailViewController.newEvent = newEvent
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        globalStruct.selectedUser = newEvent[indexPath.row].id
-    }
-    
 }
 
 extension UIImageView {

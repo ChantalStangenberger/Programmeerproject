@@ -13,15 +13,15 @@ import GoogleMaps
 
 class NewFoodEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var recipenameTextField: UITextField! = nil
-    @IBOutlet weak var recipecuisineTextField: UITextField! = nil
-    @IBOutlet weak var recipepriceTextField: UITextField! = nil
+    @IBOutlet weak var recipenameTextField: UITextField!
+    @IBOutlet weak var recipecuisineTextField: UITextField!
+    @IBOutlet weak var recipepriceTextField: UITextField!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var uploadimageButton: UIButton!
     @IBOutlet weak var addlocationButton: UIButton!
     @IBOutlet weak var addneweventButton: UIButton!
-    @IBOutlet weak var eventdateTextField: UITextField! = nil
-    @IBOutlet weak var eventtimeTextField: UITextField! = nil
+    @IBOutlet weak var eventdateTextField: UITextField!
+    @IBOutlet weak var eventtimeTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
@@ -40,21 +40,30 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         eventtimeTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         eventtimeTextField.delegate = self
         eventdateTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        locationLabel.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
         eventdateTextField.delegate = self
-        
-        addneweventButton.layer.cornerRadius = 4
-        
+
         imagePicker.delegate = self
+        addneweventButton.layer.cornerRadius = 4
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if globalStruct.latitude == 0.0 || globalStruct.longitude == 0.0 {
-            locationLabel.text = "No location added yet"
-        } else {
+        reloadData()
+        
+        if globalStruct.latitude != 0.0 || globalStruct.longitude != 0.0 {
             let savedLocation = CLLocationCoordinate2D(latitude: globalStruct.latitude, longitude: globalStruct.longitude)
             self.reverseGeocodeCoordinate(coordinate: savedLocation)
+            addlocationButton.setTitle("change location", for: .normal)
+        } else {
+            locationLabel.text = "No location added yet"
         }
+    }
+    
+    func reloadData() {
+        recipenameTextField.text = globalStruct.recipename
+        recipecuisineTextField.text = globalStruct.recipecuisine
+        recipepriceTextField.text = globalStruct.recipeprice
+        eventdateTextField.text = globalStruct.eventdate
+        eventtimeTextField.text = globalStruct.eventtime
     }
 
     @IBAction func addlocationButtonTapped(_ sender: AnyObject) {
@@ -70,11 +79,11 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            addImage.contentMode = .scaleAspectFit
-            addImage.image = pickedImage
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            addImage.image = selectedImage
         }
         dismiss(animated: true, completion: nil)
+        uploadimageButton.setTitle("change image", for: .normal)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -118,14 +127,19 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                     
-                    self.recipenameTextField.text = nil
-                    self.recipecuisineTextField.text = nil
-                    self.recipepriceTextField.text = nil
-                    self.eventtimeTextField.text = nil
-                    self.eventdateTextField.text = nil
+                    globalStruct.recipename = ""
+                    globalStruct.recipecuisine = ""
+                    globalStruct.recipeprice = ""
+                    globalStruct.eventtime = ""
+                    globalStruct.eventdate = ""
+                    
+                    self.reloadData()
+                    
                     self.addImage.image = self.image
                     self.locationLabel.text = "No location added yet"
                     self.locationLabel.textColor = UIColor(red: 191/255, green: 191/255, blue: 198/255, alpha: 1)
+                    self.addlocationButton.setTitle("add location", for: .normal)
+                    self.uploadimageButton.setTitle("upload image", for: .normal)
                     globalStruct.latitude = 0.0
                     globalStruct.longitude = 0.0
                 }
@@ -160,5 +174,13 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        globalStruct.recipename = recipenameTextField.text!
+        globalStruct.recipecuisine = recipecuisineTextField.text!
+        globalStruct.recipeprice = recipepriceTextField.text!
+        globalStruct.eventtime = eventtimeTextField.text!
+        globalStruct.eventdate = eventdateTextField.text!
     }
 }
