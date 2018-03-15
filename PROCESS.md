@@ -51,4 +51,9 @@
 * Vandaag vooral veel aan de layout gedaan, overal constraints toegevoegd. 
 * Ik kwam erachter dat ik een UItextview moet gebruiken ipv een UItextfield om de gebruiker meerdere regels te laten typen. Dit heb ik veranderd en hier ook wat informatie bij gezocht (maximum aantaal regels).
 
+### Dag 11: 15 maart
+* Het is gelukt om de organisator van het event te weergeven in bookingconfirmation en searchdetailevent. 
+* Daarnaast worden de afbeeldingen nu in firebase storages ook niet meer overschreden en worden alle afbeelding weergeven in de app. Het laden van de afbeeldingen gaat wel traag, dus ik moet nog kijken of ik een snellere manier hiervoor kan vinden.
+* Vandaag ook een opstart gemaakt voor de my events page. 
+
 
