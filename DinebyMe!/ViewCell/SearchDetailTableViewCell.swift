@@ -14,5 +14,5 @@ class SearchDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var recipenameLabel: UILabel!
     @IBOutlet weak var recipepriceLabel: UILabel!
-    
+    @IBOutlet weak var hostnameLabel: UILabel!
 }

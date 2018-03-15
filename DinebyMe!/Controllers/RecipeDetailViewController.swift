@@ -38,7 +38,7 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         dataStorage.sharedInstance.recipename = recipenameLabel.text!
         dataStorage.sharedInstance.recipeprice = recipepriceLabel.text!
         dataStorage.sharedInstance.recipedate = recipedateLabel.text!
-        dataStorage.sharedInstance.id = newEvent.id
+        dataStorage.sharedInstance.id = newEvent.userid
         
         let camera = GMSCameraPosition.camera(withLatitude: newEvent.latitudeLocation, longitude: newEvent.longitudeLocation, zoom: zoomLevel)
         

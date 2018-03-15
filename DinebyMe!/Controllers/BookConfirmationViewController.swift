@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BookConfirmationViewController: UIViewController, UITextViewDelegate {
 
@@ -22,6 +23,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
     
     
     let dataStorage = DataStorage()
+    let databaseReference = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         messageTextView.textContainer.maximumNumberOfLines = 4
         messageTextView.textContainer.lineBreakMode = .byTruncatingTail
         
-        updateUI()
-        
+        getUserData()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -55,7 +56,6 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         recipenameLabel.text = "    \u{2022} Naam recept: " + dataStorage.sharedInstance.recipename
         recipepriceLabel.text = "    \u{2022} Prijs recept: " + dataStorage.sharedInstance.recipeprice
         eventdateLabel.text = "    \u{2022} Datum evenement: " + dataStorage.sharedInstance.recipedate
-        textfieldinformationLabel.text = "Food host: " + dataStorage.sharedInstance.id
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -67,5 +67,13 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
+    }
+    
+    func getUserData() {
+        databaseReference.child("users").child(dataStorage.sharedInstance.id).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? String
+            self.textfieldinformationLabel.text = "Food host: " + value!
+        })
+        updateUI()
     }
 }

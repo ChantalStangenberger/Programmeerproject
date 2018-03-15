@@ -7,7 +7,25 @@
 		<key>DinebyMe!.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5008A3672034410200E73BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5008A37E2034410300E73BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5008A3892034410300E73BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

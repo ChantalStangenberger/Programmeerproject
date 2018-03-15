@@ -18,7 +18,7 @@ class NewEvent {
     private var _addImage: String!
     private var _latitudeLocation: Double!
     private var _longitudeLocation: Double!
-    private var _id: String!
+    private var _userid: String!
     private var _eventKey:  String!
     private var _eventRef: DatabaseReference!
     
@@ -54,15 +54,15 @@ class NewEvent {
         return _longitudeLocation
     }
     
-    var id: String {
-        return _id
+    var userid: String {
+        return _userid
     }
     
     var eventKey: String {
         return _eventKey
     }
     
-    init(eventDate: String, eventTime: String, recipeCuisine: String, recipeName: String, recipePrice: String, addImage: String, latitudeLocation: Double, longitudeLocation: Double, id: String) {
+    init(eventDate: String, eventTime: String, recipeCuisine: String, recipeName: String, recipePrice: String, addImage: String, latitudeLocation: Double, longitudeLocation: Double, userid: String) {
         _eventDate = eventDate
         _eventTime = eventTime
         _recipeCuisine = recipeCuisine
@@ -71,7 +71,7 @@ class NewEvent {
         _addImage = addImage
         _latitudeLocation = latitudeLocation
         _longitudeLocation = longitudeLocation
-        _id = id
+        _userid = userid
     }
     
     init(eventKey: String, eventData: Dictionary<String, AnyObject>) {
@@ -110,8 +110,8 @@ class NewEvent {
             _longitudeLocation = longitudeLocation
         }
         
-        if let id = eventData["id"] as? String {
-            _id = id
+        if let userid = eventData["id"] as? String {
+            _userid = userid
         }
         
         _eventRef = Database.database().reference().child("newEvent").child(_eventKey)

@@ -24,24 +24,24 @@ class SearchDetailTableViewController: UITableViewController {
         imageView.addSubview(blurView)
         self.tableView.backgroundView = imageView
         
-        tableView.separatorColor = UIColor.darkGray
+        tableView.separatorStyle = .none
         
         getNewEvent()
     }
     
-    func getNewEvent () {
+    func getNewEvent() {
         databaseReference.child("newEvent").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             self.newEvent.removeAll()
             for data in snapshot {
-                guard let movieDict = data.value as? Dictionary<String, AnyObject> else { return }
-                let movie = NewEvent(eventKey: data.key, eventData: movieDict)
-                self.newEvent.append(movie)
+                guard let eventDict = data.value as? Dictionary<String, AnyObject> else { return }
+                let event = NewEvent(eventKey: data.key, eventData: eventDict)
+                self.newEvent.append(event)
             }
             self.tableView.reloadData()
         })
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newEvent.count
     }
@@ -50,15 +50,14 @@ class SearchDetailTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchdetailCell", for: indexPath) as? SearchDetailTableViewCell
         cell?.dateLabel?.text = newEvent[indexPath.row].eventDate
         cell?.recipenameLabel?.text = newEvent[indexPath.row].recipeName
-        cell?.recipepriceLabel?.text = newEvent[indexPath.row].recipePrice
+        cell?.recipepriceLabel?.text = "€" + newEvent[indexPath.row].recipePrice
         cell?.addImage.downloadedFrom(link: newEvent[indexPath.row].addImage)
-        cell?.addImage.sizeToFit()
+    databaseReference.child("users").child(newEvent[indexPath.row].userid).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
+        let value = snapshot.value as? String
+        cell?.hostnameLabel?.text = value!
+        })
+            
         return cell!
-    }
-    
-    // makes the background of the cell transparent
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,6 +68,11 @@ class SearchDetailTableViewController: UITableViewController {
             let recipeDetailViewController = segue.destination as! RecipeDetailViewController
             recipeDetailViewController.newEvent = newEvent
         }
+    }
+    
+    // makes the background of the cell transparent
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
 }
 

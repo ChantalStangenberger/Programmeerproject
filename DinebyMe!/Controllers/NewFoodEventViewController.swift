@@ -91,7 +91,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func saveImageToFirebase(completion: @escaping (_ url: String?) -> Void) {
-        let storageReference = Storage.storage().reference().child("addImage.png")
+        let storageReference = Storage.storage().reference().child("images/\(UUID().uuidString).jpg")
         if let uploadData = UIImagePNGRepresentation(self.addImage.image!) {
             storageReference.putData(uploadData, metadata: nil) { (metadata, error) in
                 if error != nil {
@@ -169,6 +169,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
             
             self.locationLabel.text = lines.joined(separator: "\n")
             self.locationLabel.textColor = UIColor.black
+            self.locationLabel.contentMode = .scaleAspectFit
             
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()

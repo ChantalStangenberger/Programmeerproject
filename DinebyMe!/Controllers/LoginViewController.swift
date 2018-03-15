@@ -194,7 +194,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension UIView {
-    
     func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
