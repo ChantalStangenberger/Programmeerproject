@@ -18,10 +18,11 @@
 		5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A39F2034450E00E73BF4 /* BeginViewController.swift */; };
 		5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A1203455D300E73BF4 /* LoginViewController.swift */; };
 		5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008A3A3203455E800E73BF4 /* SignupViewController.swift */; };
-		5060F568205B115E0073579C /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F567205B115D0073579C /* MyEventsViewController.swift */; };
-		5060F56A205B2A240073579C /* PersonalOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F569205B2A240073579C /* PersonalOverviewTableViewCell.swift */; };
-		5060F56C205B2E5E0073579C /* PersonalRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F56B205B2E5E0073579C /* PersonalRequestTableViewCell.swift */; };
-		5060F56E205B2E760073579C /* PersonalValidatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F56D205B2E760073579C /* PersonalValidatedTableViewCell.swift */; };
+		5060F56A205B2A240073579C /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F569205B2A240073579C /* OverviewTableViewCell.swift */; };
+		5060F56C205B2E5E0073579C /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F56B205B2E5E0073579C /* RequestTableViewCell.swift */; };
+		5060F57C205C19C20073579C /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F57B205C19C20073579C /* MyEventsViewController.swift */; };
+		5060F58B205C2DF50073579C /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F58A205C2DF50073579C /* OverviewTableViewController.swift */; };
+		5060F58D205C2E060073579C /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F58C205C2E060073579C /* RequestTableViewController.swift */; };
 		506EC26C20462B0000B02143 /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506EC26B20462B0000B02143 /* NewEvent.swift */; };
 		509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AACB120443E1600890B24 /* AddLocationViewController.swift */; };
 		50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */; };
@@ -73,10 +74,11 @@
 		5008A39F2034450E00E73BF4 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		5008A3A1203455D300E73BF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5008A3A3203455E800E73BF4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		5060F567205B115D0073579C /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
-		5060F569205B2A240073579C /* PersonalOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOverviewTableViewCell.swift; sourceTree = "<group>"; };
-		5060F56B205B2E5E0073579C /* PersonalRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRequestTableViewCell.swift; sourceTree = "<group>"; };
-		5060F56D205B2E760073579C /* PersonalValidatedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalValidatedTableViewCell.swift; sourceTree = "<group>"; };
+		5060F569205B2A240073579C /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		5060F56B205B2E5E0073579C /* RequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
+		5060F57B205C19C20073579C /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
+		5060F58A205C2DF50073579C /* OverviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		5060F58C205C2E060073579C /* RequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
 		506EC26B20462B0000B02143 /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 		509AACB120443E1600890B24 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +191,9 @@
 				50C73CA5203DA93800A5A9D5 /* BookConfirmationViewController.swift */,
 				50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */,
 				50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */,
-				5060F567205B115D0073579C /* MyEventsViewController.swift */,
+				5060F57B205C19C20073579C /* MyEventsViewController.swift */,
+				5060F58A205C2DF50073579C /* OverviewTableViewController.swift */,
+				5060F58C205C2E060073579C /* RequestTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -198,9 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */,
-				5060F569205B2A240073579C /* PersonalOverviewTableViewCell.swift */,
-				5060F56B205B2E5E0073579C /* PersonalRequestTableViewCell.swift */,
-				5060F56D205B2E760073579C /* PersonalValidatedTableViewCell.swift */,
+				5060F569205B2A240073579C /* OverviewTableViewCell.swift */,
+				5060F56B205B2E5E0073579C /* RequestTableViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -431,6 +435,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -451,18 +456,19 @@
 				50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */,
 				50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */,
 				5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */,
-				5060F56E205B2E760073579C /* PersonalValidatedTableViewCell.swift in Sources */,
 				506EC26C20462B0000B02143 /* NewEvent.swift in Sources */,
 				50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */,
+				5060F58D205C2E060073579C /* RequestTableViewController.swift in Sources */,
 				50C9D4332054383000B8C5E0 /* DataStorage.swift in Sources */,
 				50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */,
-				5060F56C205B2E5E0073579C /* PersonalRequestTableViewCell.swift in Sources */,
-				5060F56A205B2A240073579C /* PersonalOverviewTableViewCell.swift in Sources */,
+				5060F56C205B2E5E0073579C /* RequestTableViewCell.swift in Sources */,
+				5060F56A205B2A240073579C /* OverviewTableViewCell.swift in Sources */,
 				509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */,
 				5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */,
 				5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */,
 				50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */,
-				5060F568205B115E0073579C /* MyEventsViewController.swift in Sources */,
+				5060F58B205C2DF50073579C /* OverviewTableViewController.swift in Sources */,
+				5060F57C205C19C20073579C /* MyEventsViewController.swift in Sources */,
 				5008A3742034410300E73BF4 /* DinebyMe_.xcdatamodeld in Sources */,
 				5008A36C2034410300E73BF4 /* AppDelegate.swift in Sources */,
 				50C9D42F20489F9300B8C5E0 /* Global.swift in Sources */,

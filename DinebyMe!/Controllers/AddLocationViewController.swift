@@ -36,7 +36,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        locationManager.distanceFilter = 50
+        locationManager.distanceFilter = 220000
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '53DAE32D27D368D5E5CE4116DEFD4C4A'
-               BlueprintName = 'Pods-DinebyMe!'
+               BlueprintIdentifier = '6B986C2913A8741085994008804335CF'
+               BlueprintName = 'XLPagerTabStrip-XLPagerTabStrip'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-DinebyMe!.framework'>
+               BuildableName = 'XLPagerTabStrip-XLPagerTabStrip.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

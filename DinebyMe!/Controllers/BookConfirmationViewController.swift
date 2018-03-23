@@ -5,7 +5,6 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
-//  https://nickharris.wordpress.com/2016/09/11/limiting-the-number-of-lines-in-a-uitextview/
 //
 
 import UIKit
@@ -19,7 +18,8 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var priceinformationLabel: UILabel!
     @IBOutlet weak var textfieldinformationLabel: UILabel!
     @IBOutlet weak var confirmationButton: UIButton!
-    @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var recipecuisineLabel: UILabel!
+    @IBOutlet weak var eventtimeLabel: UILabel!
     
     
     let dataStorage = DataStorage()
@@ -28,52 +28,59 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messageTextView.layer.borderWidth = 1
         confirmationButton.layer.cornerRadius = 4
-        
-        messageTextView.delegate = self
-        messageTextView.textContainer.maximumNumberOfLines = 4
-        messageTextView.textContainer.lineBreakMode = .byTruncatingTail
         
         getUserData()
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        messageTextView.text = ""
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        let existingLines = textView.text.components(separatedBy: CharacterSet.newlines)
-        let newLines = text.components(separatedBy: CharacterSet.newlines)
-        let linesAfterChange = existingLines.count + newLines.count - 1
-        
-        return linesAfterChange <= textView.textContainer.maximumNumberOfLines
-    }
-    
     // updates scene
     func updateUI() {
-        recipenameLabel.text = "    \u{2022} Naam recept: " + dataStorage.sharedInstance.recipename
-        recipepriceLabel.text = "    \u{2022} Prijs recept: " + dataStorage.sharedInstance.recipeprice
-        eventdateLabel.text = "    \u{2022} Datum evenement: " + dataStorage.sharedInstance.recipedate
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        self.view.endEditing(true)
+        recipenameLabel.text = "    \u{2022} Recipe name: " + dataStorage.sharedInstance.recipename
+        recipepriceLabel.text = "    \u{2022} Event price: " + dataStorage.sharedInstance.recipeprice
+        eventdateLabel.text = "    \u{2022} Event date: " + dataStorage.sharedInstance.recipedate
+        recipecuisineLabel.text = "    \u{2022} Recipe cuisine: " + dataStorage.sharedInstance.recipecuisine
+        eventtimeLabel.text = "    \u{2022} Event time: " + dataStorage.sharedInstance.repicetime
     }
     
     func getUserData() {
         databaseReference.child("users").child(dataStorage.sharedInstance.id).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? String
             self.textfieldinformationLabel.text = "Food host: " + value!
+            self.textfieldinformationLabel.addBottomBorderWithColor(color: UIColor.darkGray, width: 2)
         })
         updateUI()
+    }
+    
+    @IBAction func confirmationButtonTapped(_ sender: Any) {
+        
+        databaseReference.child("Booking").queryOrdered(byChild: "Image").queryEqual(toValue: self.dataStorage.sharedInstance.image).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists(){
+                let alert = UIAlertController(title: "Whoops!", message: "You already booked this event!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let key = self.databaseReference.childByAutoId().key
+                
+                self.databaseReference.child("Booking").child(key).setValue([
+                    "Recipename": self.dataStorage.sharedInstance.recipename,
+                    "Recipecuisine": self.dataStorage.sharedInstance.recipecuisine,
+                    "Eventprice": self.dataStorage.sharedInstance.recipeprice,
+                    "Eventdate": self.dataStorage.sharedInstance.recipedate,
+                    "Eventtime": self.dataStorage.sharedInstance.repicetime,
+                    "Eventlatitude": self.dataStorage.sharedInstance.latitude,
+                    "Eventlongitude": self.dataStorage.sharedInstance.longitude,
+                    "Image": self.dataStorage.sharedInstance.image,
+                    "Hostid": self.dataStorage.sharedInstance.id,
+                    "Uderid": Auth.auth().currentUser?.uid as Any])
+                
+                let alert = UIAlertController(title: "Booking complete", message: "Now you only have to wait for acceptance of the host", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK",
+                                             style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
     }
 }

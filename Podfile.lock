@@ -74,6 +74,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
   - FacebookCore
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleMaps
   - GooglePlaces
+  - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -104,7 +106,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: e4eaea22b83f0e840d3198c80fc80e3e6ca146ea
+PODFILE CHECKSUM: bb4e4f98a6dd9d760758c2edb8de90d5c0efc9ee
 
 COCOAPODS: 1.4.0

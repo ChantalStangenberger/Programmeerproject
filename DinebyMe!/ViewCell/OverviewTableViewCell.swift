@@ -1,5 +1,5 @@
 //
-//  PersonalOverviewTableViewCell.swift
+//  OverviewTableViewCell.swift
 //  DinebyMe!
 //
 //  Created by Chantal Stangenberger on 15-03-18.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PersonalOverviewTableViewCell: UITableViewCell {
+class OverviewTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var eventnameLabel: UILabel!
-    
+    @IBOutlet weak var MyOnlineEvents: UILabel!
 }

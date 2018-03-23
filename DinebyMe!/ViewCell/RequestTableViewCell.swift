@@ -1,5 +1,5 @@
 //
-//  PersonalValidatedTableViewCell.swift
+//  RequestTableViewCell.swift
 //  DinebyMe!
 //
 //  Created by Chantal Stangenberger on 15-03-18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalValidatedTableViewCell: UITableViewCell {
+class RequestTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

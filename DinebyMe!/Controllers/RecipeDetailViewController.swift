@@ -39,6 +39,11 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         dataStorage.sharedInstance.recipeprice = recipepriceLabel.text!
         dataStorage.sharedInstance.recipedate = recipedateLabel.text!
         dataStorage.sharedInstance.id = newEvent.userid
+        dataStorage.sharedInstance.recipecuisine = recipecuisineLabel.text!
+        dataStorage.sharedInstance.repicetime = recipetimeLabel.text!
+        dataStorage.sharedInstance.latitude = newEvent.latitudeLocation
+        dataStorage.sharedInstance.longitude = newEvent.longitudeLocation
+        dataStorage.sharedInstance.image = newEvent.addImage
         
         let camera = GMSCameraPosition.camera(withLatitude: newEvent.latitudeLocation, longitude: newEvent.longitudeLocation, zoom: zoomLevel)
         
@@ -68,5 +73,6 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         recipetimeLabel.text = newEvent.eventTime
         recipedateLabel.text = newEvent.eventDate
         recipeImage.downloadedFrom(link: newEvent.addImage)
+        recipeImage.contentMode = UIViewContentMode.scaleAspectFill
     }
 }

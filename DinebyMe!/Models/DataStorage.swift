@@ -19,4 +19,9 @@ class DataStorage {
     var recipedate : String = ""
     var recipeprice : String = ""
     var id : String = ""
+    var recipecuisine : String = ""
+    var repicetime : String = ""
+    var latitude : Double = 0
+    var longitude : Double = 0
+    var image : String = ""
 }

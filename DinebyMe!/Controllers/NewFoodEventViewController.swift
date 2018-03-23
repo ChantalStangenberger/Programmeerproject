@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  https://blog.apoorvmote.com/change-textfield-input-to-datepicker/
+//
 
 import UIKit
 import Firebase
@@ -27,6 +29,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     let imagePicker = UIImagePickerController()
     let databaseReference = Database.database().reference()
     let image = UIImage(named: "imagebackground")
+    let date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +84,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             addImage.image = selectedImage
+            addImage.contentMode = UIViewContentMode.scaleAspectFill
         }
         dismiss(animated: true, completion: nil)
         uploadimageButton.setTitle("change image", for: .normal)
@@ -105,13 +109,22 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func addneweventButtonTapped(_ sender: AnyObject) {
-        if recipenameTextField.text! == "" || recipecuisineTextField.text! == "" || recipepriceTextField.text! == "" || eventdateTextField.text! == "" || eventtimeTextField.text! == "" || addImage.image == image || locationLabel.text == "No location added yet" {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "dd.MM.yyyy"
+        let dateResult = dateformatter.string(from: date)
+        
+        let timeformatter = DateFormatter()
+        timeformatter.dateFormat = "HH:mm"
+        let timeResult = timeformatter.string(from: date)
+        
+        if recipenameTextField.text! == "" || recipecuisineTextField.text! == "" || recipepriceTextField.text! == "" || eventdateTextField.text! == "" || eventtimeTextField.text! == "" ||  locationLabel.text == "No location added yet" {
             let alert = UIAlertController(title: "Something went wrong", message: "Not all fields are completed", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK",
                                          style: .default)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
-        } else {
+        } else if (eventdateTextField.text?.compare(dateResult) == .orderedDescending) || (eventdateTextField.text?.compare(dateResult) == .orderedSame) && (eventtimeTextField.text?.compare(timeResult) == .orderedDescending) {
+            
             let userId = Auth.auth().currentUser?.uid
             let key = databaseReference.childByAutoId().key
             
@@ -136,6 +149,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                     self.reloadData()
                     
                     self.addImage.image = self.image
+                    self.addImage.contentMode = UIViewContentMode.scaleToFill
                     self.locationLabel.text = "No location added yet"
                     self.locationLabel.textColor = UIColor(red: 191/255, green: 191/255, blue: 198/255, alpha: 1)
                     self.addlocationButton.setTitle("add location", for: .normal)
@@ -144,6 +158,12 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                     globalStruct.longitude = 0.0
                 }
             }
+        } else {
+            let alert = UIAlertController(title: "Something went wrong", message: "The date/time combination you chose is in the past", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -183,5 +203,47 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         globalStruct.recipeprice = recipepriceTextField.text!
         globalStruct.eventtime = eventtimeTextField.text!
         globalStruct.eventdate = eventdateTextField.text!
+    }
+    
+    @IBAction func eventdateTextFieldStyle(_ sender: UITextField) {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "dd.MM.yyyy"
+        let dateResult = dateformatter.string(from: date)
+        eventdateTextField.text = dateResult
+        
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(NewFoodEventViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    @IBAction func eventtimeTextFieldStyle(_ sender: UITextField) {
+        let timeformatter = DateFormatter()
+        timeformatter.dateFormat = "HH:mm"
+        let timeResult = timeformatter.string(from: date)
+        eventtimeTextField.text = timeResult
+        
+        let timePickerView:UIDatePicker = UIDatePicker()
+        
+        timePickerView.datePickerMode = UIDatePickerMode.time
+        
+        sender.inputView = timePickerView
+        
+        timePickerView.addTarget(self, action: #selector(NewFoodEventViewController.timePickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        eventdateTextField.text = dateFormatter.string(from: sender.date)
+    }
+    
+    @objc func timePickerValueChanged(sender:UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        eventtimeTextField.text = timeFormatter.string(from: sender.date)
     }
 }

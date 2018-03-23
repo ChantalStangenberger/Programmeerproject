@@ -15,5 +15,6 @@ target 'DinebyMe!' do
   pod 'FacebookLogin'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'XLPagerTabStrip', '~> 8.0'
 
 end
