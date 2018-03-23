@@ -56,4 +56,10 @@
 * Daarnaast worden de afbeeldingen nu in firebase storages ook niet meer overschreden en worden alle afbeelding weergeven in de app. Het laden van de afbeeldingen gaat wel traag, dus ik moet nog kijken of ik een snellere manier hiervoor kan vinden.
 * Vandaag ook een opstart gemaakt voor de my events page. 
 
+### Dag 12: 23 maart
+* Lange tijd bezig geweest om de opzet van de overviewtableviewcontroller en requesttableviewcontroller te maken. Ik wilde gebruik maken van een buttonbar waarbij er geswitch kon worden tussen de twee tableviews. Heb hier heel lang voor gezocht op internet en uiteindelijk wat gevonden en verwerkt in de app. Werkt nu precies zoals ik wil. Nu nog de juiste data in de tableviews zetten.
+* Ik maak nu gebruik van een UIDatepicker voor het invoeren van de tijd en datum van een evenement. Hierdoor kan ik ook checken of deze datum niet al geweest is bij het toevoegen van het event. Ook heb ik bij het overzicht met alle events gezorgd dat evenementen automatisch uit het overzicht worden verwijderd, als de datum inclusief met tijdstip verlopen zijn.
+* Ik was bezig  met het invoegen van een melding wanneer de tableviews geen data bevatten. Volgens mij is dit gelukt, maar tijdens het testen liep ik bij firebase storage tegen de volgende melding aan: U heeft uw quotum voor dit project overschreden. Upgrade uw abonnement.
+Als het goed is, is dit een daglimiet en zou dit morgen verholpen moeten zijn. Dan moet ik in ieder geval meteen zorgen dat ik een hoop data (die al uit de database zijn verwijderd) ook uit de storage verwijder.
+
 
