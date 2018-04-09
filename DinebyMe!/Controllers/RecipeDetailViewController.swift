@@ -25,7 +25,6 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
     let dataStorage = DataStorage()
     var mapsView: GMSMapView!
     var zoomLevel: Float = 12.8
-    let marker = GMSMarker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +67,7 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
     // updates scene
     func updateUI() {
         recipenameLabel.text = newEvent.recipeName
-        recipecuisineLabel.text = newEvent.recipeCuisine
+        recipecuisineLabel.text = newEvent.recipeCuisine + " cuisine"
         recipepriceLabel.text = "€ " + newEvent.recipePrice
         recipetimeLabel.text = newEvent.eventTime
         recipedateLabel.text = newEvent.eventDate

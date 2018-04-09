@@ -24,4 +24,5 @@ class DataStorage {
     var latitude : Double = 0
     var longitude : Double = 0
     var image : String = ""
+    var deleteimage : String = ""
 }

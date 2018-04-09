@@ -27,13 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        currentUser = Auth.auth().currentUser
         facebookAccesToken = AccessToken.current
         
         GMSServices.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
-        GMSPlacesClient.provideAPIKey("AIzaSyBEScgovfWrA42iPBq5PjJxH-H0gIAqkC0")
         
         UINavigationBar.appearance().tintColor = UIColor.black
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "thonburi", size: 17)!], for: .normal)
         
         return true
     }

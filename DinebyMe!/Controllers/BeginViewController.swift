@@ -22,7 +22,7 @@ class BeginViewController: UIViewController {
         loginButton.layer.cornerRadius = 4
         
         Auth.auth().addStateDidChangeListener() { auth, user in
-            if currentUser != nil {
+            if user != nil {
                     self.performSegue(withIdentifier: "homeSegue", sender: nil)
             }
         }

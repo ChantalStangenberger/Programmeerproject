@@ -25,12 +25,20 @@
 		5060F58D205C2E060073579C /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F58C205C2E060073579C /* RequestTableViewController.swift */; };
 		506EC26C20462B0000B02143 /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506EC26B20462B0000B02143 /* NewEvent.swift */; };
 		509AACB220443E1600890B24 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AACB120443E1600890B24 /* AddLocationViewController.swift */; };
-		50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */; };
+		50B19F7A2077B6EE00229AF3 /* RequestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F792077B6EE00229AF3 /* RequestedTableViewCell.swift */; };
+		50B19F7C2077B6FD00229AF3 /* ValidatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F7B2077B6FD00229AF3 /* ValidatedTableViewCell.swift */; };
+		50B19F7E2077B71300229AF3 /* RequestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F7D2077B71300229AF3 /* RequestedTableViewController.swift */; };
+		50B19F802077B72200229AF3 /* ValidatedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F7F2077B72200229AF3 /* ValidatedTableViewController.swift */; };
+		50B19F822077BBAA00229AF3 /* ExactLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F812077BBAA00229AF3 /* ExactLocationViewController.swift */; };
+		50B19F842077C42C00229AF3 /* Bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F832077C42C00229AF3 /* Bookings.swift */; };
+		50B19F8620781B2500229AF3 /* YourGuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F8520781B2500229AF3 /* YourGuestsTableViewController.swift */; };
+		50B19F8820781B3A00229AF3 /* YourGuestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F8720781B3A00229AF3 /* YourGuestsTableViewCell.swift */; };
+		50B19F8A20781E7B00229AF3 /* acceptedRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B19F8920781E7B00229AF3 /* acceptedRequests.swift */; };
 		50C73CA0203DA8A500A5A9D5 /* SearchDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */; };
 		50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA1203DA8E900A5A9D5 /* NewFoodEventViewController.swift */; };
 		50C73CA4203DA92100A5A9D5 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA3203DA92100A5A9D5 /* RecipeDetailViewController.swift */; };
 		50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA5203DA93800A5A9D5 /* BookConfirmationViewController.swift */; };
-		50C73CAA203DA97D00A5A9D5 /* BookingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */; };
+		50C73CAA203DA97D00A5A9D5 /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CA9203DA97D00A5A9D5 /* BookingsViewController.swift */; };
 		50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */; };
 		50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C73CAF203F0C2200A5A9D5 /* Users.swift */; };
 		50C9D42F20489F9300B8C5E0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9D42E20489F9300B8C5E0 /* Global.swift */; };
@@ -81,12 +89,20 @@
 		5060F58C205C2E060073579C /* RequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
 		506EC26B20462B0000B02143 /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 		509AACB120443E1600890B24 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
-		50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
+		50B19F792077B6EE00229AF3 /* RequestedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedTableViewCell.swift; sourceTree = "<group>"; };
+		50B19F7B2077B6FD00229AF3 /* ValidatedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTableViewCell.swift; sourceTree = "<group>"; };
+		50B19F7D2077B71300229AF3 /* RequestedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedTableViewController.swift; sourceTree = "<group>"; };
+		50B19F7F2077B72200229AF3 /* ValidatedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTableViewController.swift; sourceTree = "<group>"; };
+		50B19F812077BBAA00229AF3 /* ExactLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExactLocationViewController.swift; sourceTree = "<group>"; };
+		50B19F832077C42C00229AF3 /* Bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookings.swift; sourceTree = "<group>"; };
+		50B19F8520781B2500229AF3 /* YourGuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourGuestsTableViewController.swift; sourceTree = "<group>"; };
+		50B19F8720781B3A00229AF3 /* YourGuestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourGuestsTableViewCell.swift; sourceTree = "<group>"; };
+		50B19F8920781E7B00229AF3 /* acceptedRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptedRequests.swift; sourceTree = "<group>"; };
 		50C73C9F203DA8A500A5A9D5 /* SearchDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewController.swift; sourceTree = "<group>"; };
 		50C73CA1203DA8E900A5A9D5 /* NewFoodEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodEventViewController.swift; sourceTree = "<group>"; };
 		50C73CA3203DA92100A5A9D5 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		50C73CA5203DA93800A5A9D5 /* BookConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookConfirmationViewController.swift; sourceTree = "<group>"; };
-		50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsTableViewController.swift; sourceTree = "<group>"; };
+		50C73CA9203DA97D00A5A9D5 /* BookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
 		50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewCell.swift; sourceTree = "<group>"; };
 		50C73CAF203F0C2200A5A9D5 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		50C9D42E20489F9300B8C5E0 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -189,11 +205,14 @@
 				509AACB120443E1600890B24 /* AddLocationViewController.swift */,
 				50C73CA3203DA92100A5A9D5 /* RecipeDetailViewController.swift */,
 				50C73CA5203DA93800A5A9D5 /* BookConfirmationViewController.swift */,
-				50C73CA9203DA97D00A5A9D5 /* BookingsTableViewController.swift */,
-				50C73C9D203DA86E00A5A9D5 /* HomeSearchViewController.swift */,
 				5060F57B205C19C20073579C /* MyEventsViewController.swift */,
 				5060F58A205C2DF50073579C /* OverviewTableViewController.swift */,
+				50B19F8520781B2500229AF3 /* YourGuestsTableViewController.swift */,
 				5060F58C205C2E060073579C /* RequestTableViewController.swift */,
+				50C73CA9203DA97D00A5A9D5 /* BookingsViewController.swift */,
+				50B19F7D2077B71300229AF3 /* RequestedTableViewController.swift */,
+				50B19F7F2077B72200229AF3 /* ValidatedTableViewController.swift */,
+				50B19F812077BBAA00229AF3 /* ExactLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,7 +222,10 @@
 			children = (
 				50C73CAC203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift */,
 				5060F569205B2A240073579C /* OverviewTableViewCell.swift */,
+				50B19F8720781B3A00229AF3 /* YourGuestsTableViewCell.swift */,
 				5060F56B205B2E5E0073579C /* RequestTableViewCell.swift */,
+				50B19F792077B6EE00229AF3 /* RequestedTableViewCell.swift */,
+				50B19F7B2077B6FD00229AF3 /* ValidatedTableViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -214,6 +236,8 @@
 				50C73CAF203F0C2200A5A9D5 /* Users.swift */,
 				50C9D42E20489F9300B8C5E0 /* Global.swift */,
 				506EC26B20462B0000B02143 /* NewEvent.swift */,
+				50B19F832077C42C00229AF3 /* Bookings.swift */,
+				50B19F8920781E7B00229AF3 /* acceptedRequests.swift */,
 				50C9D4322054383000B8C5E0 /* DataStorage.swift */,
 			);
 			path = Models;
@@ -302,7 +326,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Chantal Stangenberger";
 				TargetAttributes = {
 					5008A3672034410200E73BF4 = {
@@ -451,15 +475,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50C73CAA203DA97D00A5A9D5 /* BookingsTableViewController.swift in Sources */,
+				50B19F7A2077B6EE00229AF3 /* RequestedTableViewCell.swift in Sources */,
+				50C73CAA203DA97D00A5A9D5 /* BookingsViewController.swift in Sources */,
 				50C73CA0203DA8A500A5A9D5 /* SearchDetailTableViewController.swift in Sources */,
-				50C73C9E203DA86E00A5A9D5 /* HomeSearchViewController.swift in Sources */,
 				50C73CAD203DB0E900A5A9D5 /* SearchDetailTableViewCell.swift in Sources */,
+				50B19F842077C42C00229AF3 /* Bookings.swift in Sources */,
 				5008A3A2203455D300E73BF4 /* LoginViewController.swift in Sources */,
 				506EC26C20462B0000B02143 /* NewEvent.swift in Sources */,
+				50B19F7E2077B71300229AF3 /* RequestedTableViewController.swift in Sources */,
 				50C73CA6203DA93800A5A9D5 /* BookConfirmationViewController.swift in Sources */,
 				5060F58D205C2E060073579C /* RequestTableViewController.swift in Sources */,
+				50B19F8A20781E7B00229AF3 /* acceptedRequests.swift in Sources */,
 				50C9D4332054383000B8C5E0 /* DataStorage.swift in Sources */,
+				50B19F8820781B3A00229AF3 /* YourGuestsTableViewCell.swift in Sources */,
 				50C73CB0203F0C2200A5A9D5 /* Users.swift in Sources */,
 				5060F56C205B2E5E0073579C /* RequestTableViewCell.swift in Sources */,
 				5060F56A205B2A240073579C /* OverviewTableViewCell.swift in Sources */,
@@ -467,8 +495,12 @@
 				5008A3A02034450E00E73BF4 /* BeginViewController.swift in Sources */,
 				5008A3A4203455E800E73BF4 /* SignupViewController.swift in Sources */,
 				50C73CA2203DA8E900A5A9D5 /* NewFoodEventViewController.swift in Sources */,
+				50B19F7C2077B6FD00229AF3 /* ValidatedTableViewCell.swift in Sources */,
 				5060F58B205C2DF50073579C /* OverviewTableViewController.swift in Sources */,
+				50B19F822077BBAA00229AF3 /* ExactLocationViewController.swift in Sources */,
 				5060F57C205C19C20073579C /* MyEventsViewController.swift in Sources */,
+				50B19F802077B72200229AF3 /* ValidatedTableViewController.swift in Sources */,
+				50B19F8620781B2500229AF3 /* YourGuestsTableViewController.swift in Sources */,
 				5008A3742034410300E73BF4 /* DinebyMe_.xcdatamodeld in Sources */,
 				5008A36C2034410300E73BF4 /* AppDelegate.swift in Sources */,
 				50C9D42F20489F9300B8C5E0 /* Global.swift in Sources */,
@@ -541,6 +573,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -548,6 +581,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -575,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -598,6 +632,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -605,6 +640,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -626,7 +662,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

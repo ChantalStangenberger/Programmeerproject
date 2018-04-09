@@ -12,6 +12,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import GoogleMaps
+import Photos
 
 class NewFoodEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -26,31 +27,24 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var eventtimeTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     
-    let imagePicker = UIImagePickerController()
     let databaseReference = Database.database().reference()
     let image = UIImage(named: "imagebackground")
-    let date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recipenameTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        recipenameTextField.delegate = self
         recipecuisineTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        recipecuisineTextField.delegate = self
         recipepriceTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        recipepriceTextField.delegate = self
         eventtimeTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        eventtimeTextField.delegate = self
         eventdateTextField.addBottomBorderWithColor(color: UIColor.darkGray, width: 1)
-        eventdateTextField.delegate = self
+        
+        recipepriceTextField.delegate = self
 
-        imagePicker.delegate = self
         addneweventButton.layer.cornerRadius = 4
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reloadData()
         
         if globalStruct.latitude != 0.0 || globalStruct.longitude != 0.0 {
             let savedLocation = CLLocationCoordinate2D(latitude: globalStruct.latitude, longitude: globalStruct.longitude)
@@ -58,26 +52,43 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
             addlocationButton.setTitle("change location", for: .normal)
         } else {
             locationLabel.text = "No location added yet"
+            locationLabel.textColor = UIColor(red: 191/255, green: 191/255, blue: 198/255, alpha: 1)
+            addlocationButton.setTitle("add location", for: .normal)
         }
     }
     
-    func reloadData() {
-        recipenameTextField.text = globalStruct.recipename
-        recipecuisineTextField.text = globalStruct.recipecuisine
-        recipepriceTextField.text = globalStruct.recipeprice
-        eventdateTextField.text = globalStruct.eventdate
-        eventtimeTextField.text = globalStruct.eventtime
-    }
-
     @IBAction func addlocationButtonTapped(_ sender: AnyObject) {
         return
     }
     
     @IBAction func uploadimageButtonTapped(_ sender: AnyObject) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        
-        present(imagePicker, animated: true, completion: nil)
+        checkPermission {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+
+
+    func checkPermission(hanler: @escaping () -> Void) {
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            // Access is already granted by user
+            hanler()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { (newStatus) in
+                if newStatus == PHAuthorizationStatus.authorized {
+                    // Access is granted by user
+                    hanler()
+                }
+            }
+        default:
+            print("Error: no access to photo album.")
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -85,13 +96,13 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             addImage.image = selectedImage
             addImage.contentMode = UIViewContentMode.scaleAspectFill
+            dismiss(animated: true, completion: nil)
+            uploadimageButton.setTitle("change image", for: .normal)
         }
-        dismiss(animated: true, completion: nil)
-        uploadimageButton.setTitle("change image", for: .normal)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion:nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func saveImageToFirebase(completion: @escaping (_ url: String?) -> Void) {
@@ -109,8 +120,9 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func addneweventButtonTapped(_ sender: AnyObject) {
+        let date = Date()
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "dd.MM.yyyy"
+        dateformatter.dateFormat = "dd-MM-yyyy"
         let dateResult = dateformatter.string(from: date)
         
         let timeformatter = DateFormatter()
@@ -123,6 +135,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                                          style: .default)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
+            
         } else if (eventdateTextField.text?.compare(dateResult) == .orderedDescending) || (eventdateTextField.text?.compare(dateResult) == .orderedSame) && (eventtimeTextField.text?.compare(timeResult) == .orderedDescending) {
             
             let userId = Auth.auth().currentUser?.uid
@@ -130,7 +143,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
             
             saveImageToFirebase() { url in
                 if url != nil {
-                    let values = ["Recipename": self.recipenameTextField.text! as String, "Recipecuisine": self.recipecuisineTextField.text! as String, "Recipeprice": self.recipepriceTextField.text! as String, "Eventtime": self.eventtimeTextField.text! as String, "Eventdate": self.eventdateTextField.text! as String, "Latitudelocation": globalStruct.latitude, "Longitudelocation": globalStruct.longitude, "addImage": url! as String, "id": userId! as String ] as [String : Any]
+                    let values = ["Recipename": self.recipenameTextField.text! as String, "Recipecuisine": self.recipecuisineTextField.text! as String, "Recipeprice": self.recipepriceTextField.text! as String, "Eventtime": self.eventtimeTextField.text! as String, "Eventdate": self.eventdateTextField.text! as String,"Eventdatetime": self.eventdateTextField.text! + "_" + self.eventtimeTextField.text!, "Latitudelocation": globalStruct.latitude, "Longitudelocation": globalStruct.longitude, "addImage": url! as String, "id": userId! as String ] as [String : Any]
                     
                     self.databaseReference.child("newEvent").child(key).setValue(values)
                         
@@ -140,13 +153,11 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                     
-                    globalStruct.recipename = ""
-                    globalStruct.recipecuisine = ""
-                    globalStruct.recipeprice = ""
-                    globalStruct.eventtime = ""
-                    globalStruct.eventdate = ""
-                    
-                    self.reloadData()
+                    self.recipenameTextField.text = ""
+                    self.recipecuisineTextField.text = ""
+                    self.recipepriceTextField.text = ""
+                    self.eventtimeTextField.text = ""
+                    self.eventdateTextField.text = ""
                     
                     self.addImage.image = self.image
                     self.addImage.contentMode = UIViewContentMode.scaleToFill
@@ -197,17 +208,10 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        globalStruct.recipename = recipenameTextField.text!
-        globalStruct.recipecuisine = recipecuisineTextField.text!
-        globalStruct.recipeprice = recipepriceTextField.text!
-        globalStruct.eventtime = eventtimeTextField.text!
-        globalStruct.eventdate = eventdateTextField.text!
-    }
-    
     @IBAction func eventdateTextFieldStyle(_ sender: UITextField) {
+        let date = Date()
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "dd.MM.yyyy"
+        dateformatter.dateFormat = "dd-MM-yyyy"
         let dateResult = dateformatter.string(from: date)
         eventdateTextField.text = dateResult
         
@@ -221,6 +225,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func eventtimeTextFieldStyle(_ sender: UITextField) {
+        let date = Date()
         let timeformatter = DateFormatter()
         timeformatter.dateFormat = "HH:mm"
         let timeResult = timeformatter.string(from: date)
@@ -237,7 +242,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     
     @objc func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         eventdateTextField.text = dateFormatter.string(from: sender.date)
     }
     
@@ -245,5 +250,13 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         eventtimeTextField.text = timeFormatter.string(from: sender.date)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let aSet = NSCharacterSet(charactersIn:"0123456789.,").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
     }
 }

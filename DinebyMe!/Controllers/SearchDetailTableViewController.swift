@@ -14,6 +14,8 @@ class SearchDetailTableViewController: UITableViewController {
     
     let databaseReference = Database.database().reference()
     var newEvent = [NewEvent]()
+    let dataStorage = DataStorage()
+    let userId = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,12 @@ class SearchDetailTableViewController: UITableViewController {
         updateEvents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        globalStruct.latitude = 0.0
+        globalStruct.longitude = 0.0
+        updateEvents()
+    }
+    
     func getNewEvent() {
         databaseReference.child("newEvent").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -37,18 +45,11 @@ class SearchDetailTableViewController: UITableViewController {
             for data in snapshot {
                 guard let eventDict = data.value as? Dictionary<String, AnyObject> else { return }
                 let event = NewEvent(eventKey: data.key, eventData: eventDict)
-                self.newEvent.append(event)
+                if event.userid != self.userId {
+                    self.newEvent.append(event)
+                }
             }
             self.tableView.reloadData()
-            
-            if self.newEvent.count == 0 {
-                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-                emptyLabel.text = "There is nothing to show yet"
-                emptyLabel.font = UIFont(name: "thonburi", size: 14)!
-                emptyLabel.textAlignment = NSTextAlignment.center
-                self.tableView.backgroundView = emptyLabel
-                self.tableView.separatorStyle = .none
-            }
         })
     }
     
@@ -58,6 +59,7 @@ class SearchDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchdetailCell", for: indexPath) as? SearchDetailTableViewCell
+        cell?.selectionStyle = .none
         cell?.dateLabel?.text = newEvent[indexPath.row].eventDate
         cell?.recipenameLabel?.text = newEvent[indexPath.row].recipeName
         cell?.recipepriceLabel?.text = "€" + newEvent[indexPath.row].recipePrice
@@ -91,8 +93,6 @@ class SearchDetailTableViewController: UITableViewController {
         let dateformatter = DateFormatter()
         let timeformatter = DateFormatter()
         
-        Storage.storage().reference().child("images/\(UUID().uuidString).jpg").delete()
-        
         databaseReference.child("newEvent").observeSingleEvent(of: .value, with: { (snapshot) in
             
             for snap in snapshot.children {
@@ -101,17 +101,31 @@ class SearchDetailTableViewController: UITableViewController {
                 let eventdate = userDict["Eventdate"] as! String
                 let eventtime = userDict["Eventtime"] as! String
                 
-                dateformatter.dateFormat = "dd.MM.yyyy"
+                dateformatter.dateFormat = "dd-MM-yyyy"
                 let dateResult = dateformatter.string(from: date)
                 
                 timeformatter.dateFormat = "HH:mm"
                 let timeResult = timeformatter.string(from: date)
                 
                 if (eventdate.compare(dateResult) == .orderedAscending) || (eventdate.compare(dateResult) == .orderedSame) && (eventtime.compare(timeResult) == .orderedAscending) {
-                    self.databaseReference.child("newEvent").queryOrdered(byChild: "Eventdate").queryEqual(toValue: eventdate).observe(.value, with: { (snapshot) in
+                    
+                    self.databaseReference.child("newEvent").queryOrdered(byChild: "Eventdatetime").queryEqual(toValue: "\(eventdate)_\(eventtime)").observe(.value, with: { (snapshot) in
+                        guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+                        for data in snapshot {
+                            guard let eventDict = data.value as? Dictionary<String, AnyObject> else { return }
+                            let event = NewEvent(eventKey: data.key, eventData: eventDict)
+                            Storage.storage().reference(forURL: event.addImage).delete { error in
+                                if let error = error {
+                                    print(error)
+                                }
+                            }
+                        }
+                    })
+                    
+                    self.databaseReference.child("newEvent").queryOrdered(byChild: "Eventdatetime").queryEqual(toValue: "\(eventdate)_\(eventtime)").observe(.value, with: { (snapshot) in
                         if let eventDate = snapshot.value as? [String: [String: AnyObject]] {
                             for (key, _) in eventDate  {
-                              self.databaseReference.child("newEvent").child(key).removeValue()
+                                self.databaseReference.child("newEvent").child(key).removeValue()
                             }
                         }
                     })
@@ -120,6 +134,15 @@ class SearchDetailTableViewController: UITableViewController {
         })
         getNewEvent()
     }
+    
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Overview events", message: "Here you can find all the active events. When you want to add an event you can press on the '+'. Your own events are not listed in this feed, but you can find them under 'My Events'.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension UIImageView {

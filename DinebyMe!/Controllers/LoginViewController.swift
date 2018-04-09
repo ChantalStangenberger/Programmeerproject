@@ -32,17 +32,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        let facebookloginButton = UIButton(frame: CGRect(x: 65, y: 124, width: 80, height: 80))
+        let facebookloginButton = UIButton(frame: CGRect(x: 150, y: 110, width: 80, height: 80))
         let facebookimage = UIImage(named: "facebookbutton")
         facebookloginButton.setImage(facebookimage, for: .normal)
         facebookloginButton.addTarget(self, action: #selector(self.facebookloginButtonTapped), for: .touchUpInside)
         
-        let googleloginButton = UIButton(frame: CGRect(x: 235, y: 127, width: 75, height: 75))
-        let googleimage = UIImage(named: "googlebutton")
-        googleloginButton.setImage(googleimage, for: .normal)
-        
         view.addSubview(facebookloginButton)
-        view.addSubview(googleloginButton)
     }
     
     @objc func facebookloginButtonTapped() {
@@ -66,7 +61,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             self.present(alert, animated: true, completion: nil)
                         }
                         self.storeUserData(userId: (user?.uid)!)
-                        currentUser = Auth.auth().currentUser
                         self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
                     }
                 } else {

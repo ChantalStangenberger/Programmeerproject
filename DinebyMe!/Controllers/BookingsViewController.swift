@@ -1,23 +1,18 @@
 //
-//  MyEventsViewController.swift
+//  BookingsTableViewController.swift
 //  DinebyMe!
 //
-//  Created by Chantal Stangenberger on 16-03-18.
+//  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
-//
-//  https://www.youtube.com/watch?v=tkR2USQlkHI
 //
 
 import UIKit
-import Firebase
-import FacebookCore
 import XLPagerTabStrip
 
-class MyEventsViewController: ButtonBarPagerTabStripViewController {
+class BookingsViewController:  ButtonBarPagerTabStripViewController {
     
     override func viewDidLoad() {
         self.loadDesign()
-        
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 245/255, green: 244/255, blue: 249/255, alpha: 1)
@@ -29,8 +24,8 @@ class MyEventsViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let child_overview = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "overviewTable")
-        let child_request = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "requestTable")
+        let child_overview = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "requestedTable")
+        let child_request = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "validatedTable")
         return [child_overview, child_request]
     }
     
@@ -52,27 +47,11 @@ class MyEventsViewController: ButtonBarPagerTabStripViewController {
         }
     }
     
-    @IBAction func signoutButtonTapped(_ sender: Any) {
-        if facebookAccesToken != nil {
-            AccessToken.current = nil
-            facebookAccesToken = nil
-        }
-        
-        do {
-            try Auth.auth().signOut()
-            self.performSegue(withIdentifier: "signoutSegue", sender: self)
-            print("Sign Out Successful")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
     @IBAction func infoButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "My events", message: "Under 'overview' you can find all your active events. When you tap at a specific event you can see which guests are comming. Under 'requests' you can find the booking requests from other users for your events. You can accept or decline the requests. ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Event Bookings", message: "Here you can find the events that you have been booking. Under 'requested' are events listed that not yet have been approved by the host of the event. When an event disappears from the requested section, the host of the event has declined your request. Under 'validated' you can find the approved requests for the events. When you tap on a validated event you can see the address of that event.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK",
                                      style: .default)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
 }
-

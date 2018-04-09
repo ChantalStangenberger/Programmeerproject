@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow use of photo library</string>
+	<string>allow</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location</string>
 	<key>CFBundleDevelopmentRegion</key>

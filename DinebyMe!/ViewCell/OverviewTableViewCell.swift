@@ -9,6 +9,11 @@
 import UIKit
 
 class OverviewTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var MyOnlineEvents: UILabel!
+    
+    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
 }
