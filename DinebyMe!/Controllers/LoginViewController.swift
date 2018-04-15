@@ -111,35 +111,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         } else {
-            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-                if error != nil {
-                    if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                        
-                        switch(errorCode) {
-                        case .userNotFound:
-                            let alert = UIAlertController(title: "Something went wrong", message: "User was not found in our database, please register", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        case .wrongPassword:
-                            let alert = UIAlertController(title: "Something went wrong", message: "Wrong password", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        default:
-                            let alert = UIAlertController(title: "Something went wrong", message: "Try again to register", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
+            signinFirebase()
+        }
+    }
+    
+    // Sign user in into firebase.
+    func signinFirebase() {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+                if let errorCode = AuthErrorCode(rawValue: error!._code) {
                     
-                } else {
-                    self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
+                    switch(errorCode) {
+                    case .userNotFound:
+                        let alert = UIAlertController(title: "Something went wrong", message: "User was not found in our database, please register", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    case .wrongPassword:
+                        let alert = UIAlertController(title: "Something went wrong", message: "Wrong password", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    default:
+                        let alert = UIAlertController(title: "Something went wrong", message: "Try again to register", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
+                
+            } else {
+                self.performSegue(withIdentifier: "loginhomeSegue", sender: self)
             }
         }
     }

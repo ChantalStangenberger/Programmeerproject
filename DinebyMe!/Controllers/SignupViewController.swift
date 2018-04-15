@@ -37,7 +37,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
-    // checks if emailfield and passwordfield are filled in: if there's no conflict with firebase, create user and log in
+    // checks if emailfield and passwordfield are filled in and calls function createUser.
     @IBAction func registerButtonTapped(_ sender: AnyObject) {
         if yournameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
@@ -55,47 +55,52 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         } else {
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-                if error == nil {
-                    self.storeUserData(userId: (user?.uid)!)
-                    Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
-                    self.performSegue(withIdentifier: "signuphomeSegue", sender: self)
-                } else {
-                    if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                        
-                        switch(errorCode) {
-                        case .invalidEmail:
-                            let alert = UIAlertController(title: "Something went wrong", message: "This email address does not exist", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        case .emailAlreadyInUse:
-                            let alert = UIAlertController(title: "Something went wrong", message: "Email address is already in use", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        case .weakPassword:
-                            let alert = UIAlertController(title: "Something went wrong", message: "Password is to weak", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        default:
-                            let alert = UIAlertController(title: "Something went wrong", message: "Try again to register", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",
-                                                         style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true, completion: nil)
-                        }
+            createUser()
+        }
+    }
+    
+    // Creates user in firebase if there's no conflict with firebase.
+    func createUser() {
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error == nil {
+                self.storeUserData(userId: (user?.uid)!)
+                Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
+                self.performSegue(withIdentifier: "signuphomeSegue", sender: self)
+            } else {
+                if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                    
+                    switch(errorCode) {
+                    case .invalidEmail:
+                        let alert = UIAlertController(title: "Something went wrong", message: "This email address does not exist", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    case .emailAlreadyInUse:
+                        let alert = UIAlertController(title: "Something went wrong", message: "Email address is already in use", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    case .weakPassword:
+                        let alert = UIAlertController(title: "Something went wrong", message: "Password is to weak", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    default:
+                        let alert = UIAlertController(title: "Something went wrong", message: "Try again to register", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",
+                                                     style: .default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }
         }
     }
     
-    // creates path in database with unique userid and email
+    // creates path in database with unique userid and email.
     func storeUserData(userId: String) {
         Database.database().reference().child("users").child(userId).setValue([
             "email": emailTextField.text,

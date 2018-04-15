@@ -55,7 +55,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         updateUI()
     }
     
-    // Confirm booking of event if requirements are met and store booking in to firebase.
+    // Check for date/time and calls function checkFirbase.
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -83,6 +83,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // Confirm booking of event if requirements are met and store booking into firebase.
     func checkFirebase() {
         databaseReference.child("booking").queryOrdered(byChild: "Control").queryEqual(toValue: self.dataStorage.sharedInstance.recipename + "_" + self.dataStorage.sharedInstance.repicetime + "_" + self.dataStorage.sharedInstance.recipedate + "_" + self.dataStorage.sharedInstance.id + "_" + self.userId!).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists(){
