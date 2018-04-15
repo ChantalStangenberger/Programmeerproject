@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 14-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Allows the user to create an account for DinebyMe!.
+//
 
 import UIKit
 import Firebase
@@ -19,6 +21,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var designLabel: UILabel!
     @IBOutlet weak var designLabel2: UILabel!
     
+    // Set up view with some preferences.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +37,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
+    // checks if emailfield and passwordfield are filled in: if there's no conflict with firebase, create user and log in
     @IBAction func registerButtonTapped(_ sender: AnyObject) {
         if yournameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
@@ -91,6 +95,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // creates path in database with unique userid and email
     func storeUserData(userId: String) {
         Database.database().reference().child("users").child(userId).setValue([
             "email": emailTextField.text,
@@ -98,16 +103,19 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             "uid": Auth.auth().currentUser?.uid])
     }
 
+    // Go to the login page.
     @IBAction func cancelButtonTapped(_ sender: Any) {
         return
     }
     
+    // When return is pressed, keyboard disappears.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true
     }
     
+    // When clicked somewhere on the screen, keyboard disappears.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)

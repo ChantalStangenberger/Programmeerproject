@@ -5,7 +5,9 @@
 //  Created by Chantal Stangenberger on 14-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
-// http://www.phoumangkor.com/2017/02/how-to-custom-border-line-on-bottom-of.html
+//  Allows the user to log in into DinebyMe! with facebook or email or go to the email sign up page.
+//  User can also reset their password.
+//  For layout preferences: http://www.phoumangkor.com/2017/02/how-to-custom-border-line-on-bottom-of.html
 //
 
 import UIKit
@@ -22,6 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var changepasswordButton: UIButton!
     @IBOutlet weak var registeraccountButton: UIButton!
     
+    // Set up view with some preferences.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +43,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(facebookloginButton)
     }
     
+    // Facebook login option with loginmanager.
     @objc func facebookloginButtonTapped() {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {loginResult in
@@ -74,6 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Creates path in database with facebook and name from facebook data and an unique userid.
     func storeUserData(userId: String) {
         let connection = GraphRequestConnection()
         connection.add(GraphRequest(graphPath: "/me", parameters: ["fields": "name, email"])) { httpResponse, result in
@@ -90,6 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         connection.start()
     }
     
+    // Checks if emailfield and passwordfield are filled in: if user exists in firebase log in to DinebyMe!
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if emailTextField.text == "" || passwordTextField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
@@ -138,9 +144,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Go to the beginscreen.
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
         return
     }
+    
+    // When a user forgot his password, a reset link can be send.
     @IBAction func changepasswordButtonTapped(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Forgot password", message: "Please enter your email address and we will send you a reset link.", preferredStyle: .alert)
         
@@ -170,16 +179,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
     }
     
+    // Go to the register page.
     @IBAction func registeraccountButtonTapped(_ sender: AnyObject) {
         return
     }
     
+    // When return is pressed, keyboard disappears.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true
     }
     
+    // When clicked somewhere on the screen, keyboard disappears.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
@@ -187,6 +199,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 }
 
+// Allows to customize the bottom border.
 extension UIView {
     func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
         let border = CALayer()

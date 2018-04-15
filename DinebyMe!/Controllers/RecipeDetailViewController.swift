@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Shows details of a specific event chosen by a user.
+//
 
 import UIKit
 import GoogleMaps
@@ -26,6 +28,7 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
     var mapsView: GMSMapView!
     var zoomLevel: Float = 12.8
 
+    // Set up view with some preferences and calls function updateUI and addCircleLocation.
     override func viewDidLoad() {
         super.viewDidLoad()
         locationLabel.addBottomBorderWithColor(color: UIColor.darkGray, width: 2)
@@ -55,6 +58,7 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         addCircleLocation()
     }
     
+    // Add a circle on the map.
     func addCircleLocation() {
         let circleCenter = CLLocationCoordinate2D(latitude: newEvent.latitudeLocation, longitude: newEvent.longitudeLocation)
         let circ = GMSCircle(position: circleCenter, radius: 1000)
@@ -64,14 +68,15 @@ class RecipeDetailViewController: UIViewController, GMSMapViewDelegate {
         circ.map = mapsView
     }
     
-    // updates scene
+    // Updates scene.
     func updateUI() {
         recipenameLabel.text = newEvent.recipeName
         recipecuisineLabel.text = newEvent.recipeCuisine + " cuisine"
         recipepriceLabel.text = "€ " + newEvent.recipePrice
         recipetimeLabel.text = newEvent.eventTime
         recipedateLabel.text = newEvent.eventDate
-        recipeImage.downloadedFrom(link: newEvent.addImage)
+        let url = URL(string: newEvent.addImage)
+        recipeImage.kf.setImage(with: url)
         recipeImage.contentMode = UIViewContentMode.scaleAspectFill
     }
 }

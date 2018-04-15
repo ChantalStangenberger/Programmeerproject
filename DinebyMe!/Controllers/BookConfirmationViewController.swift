@@ -5,6 +5,7 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  User sees a overview of event details and can request to book a specific event.
 //
 
 import UIKit
@@ -26,7 +27,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
     let databaseReference = Database.database().reference()
     let userId = Auth.auth().currentUser?.uid
 
-    
+    // Set up view with some preferences and calls function getUserData.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +36,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         getUserData()
     }
     
-    // updates scene
+    // Updates scene.
     func updateUI() {
         recipenameLabel.text = "    \u{2022} Recipe name: " + dataStorage.sharedInstance.recipename
         recipepriceLabel.text = "    \u{2022} Event price: " + dataStorage.sharedInstance.recipeprice
@@ -44,6 +45,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         eventtimeLabel.text = "    \u{2022} Event time: " + dataStorage.sharedInstance.repicetime
     }
     
+    // Gets user data to display the event host's name.
     func getUserData() {
         databaseReference.child("users").child(dataStorage.sharedInstance.id).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? String
@@ -53,6 +55,7 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
         updateUI()
     }
     
+    // Confirm booking of event if requirements are met and store booking in to firebase.
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         let date = Date()
         let dateformatter = DateFormatter()

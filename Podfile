@@ -14,7 +14,7 @@ target 'DinebyMe!' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'XLPagerTabStrip', '~> 8.0'
+  pod 'Kingfisher', '~> 4.0'
 
 end

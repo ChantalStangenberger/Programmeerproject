@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 06-04-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Displays the requested bookings of the current user.
+//
 
 import UIKit
 import Firebase
@@ -16,21 +18,34 @@ class RequestedTableViewController: UITableViewController {
     var booking = [Bookings]()
     let userId = Auth.auth().currentUser?.uid
 
+    // Set up view with some preferences and call function getMyRequests.
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.backgroundColor = UIColor(red: 245/255, green: 244/255, blue: 249/255, alpha: 1)
         tableView.separatorStyle = .none
         
-        tableView.rowHeight = 325
+        tableView.rowHeight = 324
+        
+        let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsetsMake(0, 0, self.tabBarController!.tabBar.frame.height, 0)
+        self.tableView.contentInset = adjustForTabbarInsets
+        self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
         
         getMyRequests()
     }
     
+    // Set up some preferences and calls function updateOverview.
     override func viewDidAppear(_ animated: Bool) {
+        
+        let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.tableView.contentInset = adjustForTabbarInsets
+        self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
+        
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         updateRequests()
     }
     
+    // Get the events from firebase booked by the current user.
     func getMyRequests() {
         databaseReference.child("booking").queryOrdered(byChild: "Userid").queryEqual(toValue: userId!).observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -44,10 +59,12 @@ class RequestedTableViewController: UITableViewController {
         })
     }
 
+    // Returns amount of booking requests.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return booking.count
     }
     
+    // Returns tableview cell with data from firebase.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "requestedCell", for: indexPath) as! RequestedTableViewCell
         
@@ -55,18 +72,20 @@ class RequestedTableViewController: UITableViewController {
         cell.recipenameLabel.text = booking[indexPath.row].recipeName
         cell.dateLabel.text = booking[indexPath.row].eventDate
         cell.timeLabel.text = booking[indexPath.row].eventTime
-        cell.cuisineLabel.text = "• " + booking[indexPath.row].recipeCuisine + " cuisine"
+        cell.cuisineLabel.text = "• " + booking[indexPath.row].recipeCuisine
         cell.priceLabel.text = booking[indexPath.row].recipePrice
-    databaseReference.child("users").child(booking[indexPath.row].hostid).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
+    databaseReference.child("users").child(booking[indexPath.row].hostid).child("name").observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as? String
             cell.hostnameLabel.text = "• Host: " + value!
         })
-        cell.imageRequested.downloadedFrom(link: booking[indexPath.row].addImage)
+        let url = URL(string: booking[indexPath.row].addImage)
+        cell.imageRequested.kf.setImage(with: url)
         cell.imageRequested.contentMode = UIViewContentMode.scaleAspectFill
         
         return cell
     }
     
+    // Updates events with current date/time. If date/time combination is in the past, delete event data from firebase and calls getMyRequests.
     func updateRequests() {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -98,10 +117,12 @@ class RequestedTableViewController: UITableViewController {
                 }
             }
         })
+        tableView.reloadData()
         getMyRequests()
     }
 }
 
+// With the function of IndicatorInfoProvider the title of this tableviewcontroller can be set in the buttonbar.
 extension RequestedTableViewController : IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

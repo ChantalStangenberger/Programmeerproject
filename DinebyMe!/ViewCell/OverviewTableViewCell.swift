@@ -16,4 +16,10 @@ class OverviewTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+        override func prepareForReuse() {
+            super.prepareForReuse()
+    
+            self.adressLabel.text = nil
+        }
 }

@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 06-04-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Displays the validated booking request of the current user.
+//
 
 import UIKit
 import Firebase
@@ -16,6 +18,7 @@ class ValidatedTableViewController: UITableViewController {
     let databaseReference = Database.database().reference()
     let userId = Auth.auth().currentUser?.uid
 
+    // Set up view with some preferences and calls function getMyValidatedEvents.
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,10 +28,13 @@ class ValidatedTableViewController: UITableViewController {
         getMyValidatedEvents()
     }
     
+    // Set up some preferences and calls function updateValidated.
     override func viewDidAppear(_ animated: Bool) {
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         updateValidated()
     }
     
+    // Get the validated events from firebase.
     func getMyValidatedEvents() {
         databaseReference.child("acceptedRequests").queryOrdered(byChild: "Userid").queryEqual(toValue: userId!).observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -42,22 +48,25 @@ class ValidatedTableViewController: UITableViewController {
         })
     }
 
+    // Returns amount of validated events.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accepted.count
     }
     
+    // Returns tableview cell with data from firebase.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "validatedCell", for: indexPath) as! ValidatedTableViewCell
         
         cell.selectionStyle = .none
         cell.recipenameLabel.text = accepted[indexPath.row].recipeName
-        cell.cuisineLabel.text = "• " + accepted[indexPath.row].recipeCuisine + " cuisine"
+        cell.cuisineLabel.text = "• " + accepted[indexPath.row].recipeCuisine
         cell.dateLabel.text = accepted[indexPath.row].eventDate
         cell.timeLabel.text = accepted[indexPath.row].eventTime
         cell.priceLabel.text = accepted[indexPath.row].recipePrice
-        cell.validatedImage.downloadedFrom(link: accepted[indexPath.row].addImage)
+        let url = URL(string: accepted[indexPath.row].addImage)
+        cell.validatedImage.kf.setImage(with: url)
         cell.validatedImage.contentMode = UIViewContentMode.scaleAspectFill
-    databaseReference.child("users").child(accepted[indexPath.row].hostid).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
+    databaseReference.child("users").child(accepted[indexPath.row].hostid).child("name").observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as? String
             cell.hostnameLabel.text = "• Host: " + value!
         })
@@ -65,6 +74,7 @@ class ValidatedTableViewController: UITableViewController {
         return cell
     }
     
+    // Segue to ExactLocationViewController with details of the validated events.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "exactlocationSegue" {
             let cell = sender as! UITableViewCell
@@ -75,6 +85,7 @@ class ValidatedTableViewController: UITableViewController {
         }
     }
     
+    // Updates events with current date/time. If date/time combination is in the past, delete event data from firebase and calls getMyValidatedEvents.
     func updateValidated() {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -99,17 +110,19 @@ class ValidatedTableViewController: UITableViewController {
                     self.databaseReference.child("acceptedRequests").queryOrdered(byChild: "Eventdatetime").queryEqual(toValue: "\(eventdate)_\(eventtime)").observe(.value, with: { (snapshot) in
                         if let eventDate = snapshot.value as? [String: [String: AnyObject]] {
                             for (key, _) in eventDate  {
-                                self.databaseReference.child("booking").child(key).removeValue()
+                                self.databaseReference.child("acceptedRequests").child(key).removeValue()
                             }
                         }
                     })
                 }
             }
         })
+        tableView.reloadData()
         getMyValidatedEvents()
     }
 }
 
+// With the function of IndicatorInfoProvider the title of this tableviewcontroller can be set in the buttonbar.
 extension ValidatedTableViewController : IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

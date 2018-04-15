@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 06-04-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Displays the exact event location with address.
+//
 
 import UIKit
 import GoogleMaps
@@ -19,6 +21,7 @@ class ExactLocationViewController: UIViewController, GMSMapViewDelegate {
     var zoomLevel: Float = 16.0
     let marker = GMSMarker()
 
+    // Set up mapview with some preferences and calls function showMarkerPosition.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,12 +41,14 @@ class ExactLocationViewController: UIViewController, GMSMapViewDelegate {
         showMarkerPosition()
     }
 
+    // Shows the marker on the map.
     func showMarker(position: CLLocationCoordinate2D) {
         marker.position = position
         marker.title = "Location of the event"
         marker.map = mapView
     }
 
+    // Gets the position for the marker and coordinates for the address.
     func showMarkerPosition() {
         let camera = GMSCameraPosition.camera(withLatitude: validated.latitudeLocation,
                                               longitude: validated.longitudeLocation,
@@ -52,6 +57,7 @@ class ExactLocationViewController: UIViewController, GMSMapViewDelegate {
         self.reverseGeocodeCoordinate(coordinate: camera.target)
     }
     
+    // Changes the latitude and longitude to address.
     private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
         
         let geocoder = GMSGeocoder()

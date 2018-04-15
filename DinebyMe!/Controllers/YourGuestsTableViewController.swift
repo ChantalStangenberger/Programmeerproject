@@ -5,6 +5,8 @@
 //  Created by Chantal Stangenberger on 06-04-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Displays the guest who are coming to your event.
+//
 
 import UIKit
 import Firebase
@@ -15,6 +17,7 @@ class YourGuestsTableViewController: UITableViewController {
     var accepted = [acceptedRequests]()
     let databaseReference = Database.database().reference()
 
+    // Set up view with some preferences and call function getGuestList.
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +29,12 @@ class YourGuestsTableViewController: UITableViewController {
         getGuestList()
     }
     
+    // Returns amount of guests.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accepted.count
     }
     
+    // Returns tableview cell with guests names and email from firebase.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourguestsCell", for: indexPath) as! YourGuestsTableViewCell
         
@@ -46,6 +51,7 @@ class YourGuestsTableViewController: UITableViewController {
         return cell
     }
     
+    // Get all guests from firebase.
     func getGuestList() {
         databaseReference.child("acceptedRequests").queryOrdered(byChild: "Image").queryEqual(toValue: newEvent.addImage).observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -59,7 +65,7 @@ class YourGuestsTableViewController: UITableViewController {
         })
     }
     
-    // makes the background of the cell transparent
+    // Makes the background of the cell transparent.
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
     }

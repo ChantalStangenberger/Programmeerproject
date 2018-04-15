@@ -5,7 +5,8 @@
 //  Created by Chantal Stangenberger on 26-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
-//  https://www.raywenderlich.com/179565/google-maps-ios-sdk-tutorial-getting-started
+//  Displays a map where the user can add their event location by clicking on the map. Shows also the current position of the user if it is allowed.
+//  Used https://www.raywenderlich.com/179565/google-maps-ios-sdk-tutorial-getting-started to display google maps setup.
 //
 
 import UIKit
@@ -27,9 +28,10 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
     
     let databaseReference = Database.database().reference()
     
-    // A default location to use when location permission is not granted.
+    // A default location: used when location permission is not granted.
     let defaultLocation = CLLocation(latitude: 52.370216, longitude: 4.895168)
     
+    // Set up mapview with some preferences and calls function showCurrentMarkerPosition.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,13 +53,13 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         
         adressLabel.contentMode = .scaleAspectFit
         
-        // Add the map to the view, hide it until we've got a location update.
         mapsView.addSubview(mapView)
         mapView.isHidden = true
         
         showCurrentMarkerPosition()
     }
     
+    // Shows the marker on the map.
     func showMarker(position: CLLocationCoordinate2D) {
         marker.position = position
         marker.title = "Currently selected event place "
@@ -65,6 +67,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         marker.map = mapView
     }
     
+    // When tapped at a location, show a marker on that location.
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude,
                                               longitude: coordinate.longitude,
@@ -77,6 +80,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         globalStruct.longcoordinate = coordinate.longitude
     }
     
+    // Saves the marked location into a global struct.
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
         if marker.map != nil {
             let alert = UIAlertController(title: "Location saved", message: "You set the location of the event succesfully.", preferredStyle: .alert)
@@ -97,6 +101,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    // If the event location is already added and saved, show this event location with a marker.
     func showCurrentMarkerPosition() {
         if globalStruct.latitude != 0.0 || globalStruct.longitude != 0.0 {
             let camera = GMSCameraPosition.camera(withLatitude: globalStruct.latitude,
@@ -107,6 +112,7 @@ class AddLocationViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    // Changes the latitude and longitude to address.
     private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
 
         let geocoder = GMSGeocoder()

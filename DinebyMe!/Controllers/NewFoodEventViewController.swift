@@ -5,7 +5,11 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
-//  https://blog.apoorvmote.com/change-textfield-input-to-datepicker/
+//  Allows the user to add a new food event.
+//  Used https://blog.apoorvmote.com/change-textfield-input-to-datepicker/ for date/time selection.
+//  Used https://www.raywenderlich.com/179565/google-maps-ios-sdk-tutorial-getting-started to display google maps address on label.
+//  Used http://www.codingexplorer.com/choosing-images-with-uiimagepickercontroller-in-swift/ for information about imagepicker.
+//  Used https://stackoverflow.com/questions/46608761/picker-error-message-on-exit-encountered-while-discovering-extensions-error-do to use photoAuthorizationStatus.
 //
 
 import UIKit
@@ -30,6 +34,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
     let databaseReference = Database.database().reference()
     let image = UIImage(named: "imagebackground")
     
+    // Set up view with some preferences.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,8 +49,8 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         addneweventButton.layer.cornerRadius = 4
     }
     
+    // When a location is added in the AddLocationViewController display this location in a label.
     override func viewWillAppear(_ animated: Bool) {
-        
         if globalStruct.latitude != 0.0 || globalStruct.longitude != 0.0 {
             let savedLocation = CLLocationCoordinate2D(latitude: globalStruct.latitude, longitude: globalStruct.longitude)
             self.reverseGeocodeCoordinate(coordinate: savedLocation)
@@ -57,10 +62,12 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    // Go to the AddLocationViewController.
     @IBAction func addlocationButtonTapped(_ sender: AnyObject) {
         return
     }
     
+    // When user clicks on button call function checkPermission and pick image chosen by the user.
     @IBAction func uploadimageButtonTapped(_ sender: AnyObject) {
         checkPermission {
             let imagePicker = UIImagePickerController()
@@ -72,17 +79,15 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
 
-
+    // Check if an user gives permission to access their photo library.
     func checkPermission(hanler: @escaping () -> Void) {
         let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         switch photoAuthorizationStatus {
         case .authorized:
-            // Access is already granted by user
             hanler()
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { (newStatus) in
                 if newStatus == PHAuthorizationStatus.authorized {
-                    // Access is granted by user
                     hanler()
                 }
             }
@@ -91,8 +96,8 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    // Set chosen image to the imageview.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             addImage.image = selectedImage
             addImage.contentMode = UIViewContentMode.scaleAspectFill
@@ -101,10 +106,12 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    // Dismiss when user clicks cancel.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
+    // Saves chosen image to firebase storage.
     func saveImageToFirebase(completion: @escaping (_ url: String?) -> Void) {
         let storageReference = Storage.storage().reference().child("images/\(UUID().uuidString).jpg")
         if let uploadData = UIImagePNGRepresentation(self.addImage.image!) {
@@ -119,6 +126,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    // When user adds event, check if requirements met, then add data to firebase and calls function to store image in firebase storage.
     @IBAction func addneweventButtonTapped(_ sender: AnyObject) {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -178,17 +186,13 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        return true
-    }
-    
+    // When clicked somewhere on the screen, keyboard disappears.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
     }
     
+    // Convert the latitude and longitude to address.
     private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
         
         let geocoder = GMSGeocoder()
@@ -208,6 +212,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    // Allows that the user can select a date.
     @IBAction func eventdateTextFieldStyle(_ sender: UITextField) {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -224,6 +229,7 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         datePickerView.addTarget(self, action: #selector(NewFoodEventViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
+    // Allows that the user can select a time.
     @IBAction func eventtimeTextFieldStyle(_ sender: UITextField) {
         let date = Date()
         let timeformatter = DateFormatter()
@@ -240,18 +246,21 @@ class NewFoodEventViewController: UIViewController, UIImagePickerControllerDeleg
         timePickerView.addTarget(self, action: #selector(NewFoodEventViewController.timePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
+    // Set chosen date to the textfield.
     @objc func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         eventdateTextField.text = dateFormatter.string(from: sender.date)
     }
     
+    // Set chosen time to the textfield.
     @objc func timePickerValueChanged(sender:UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         eventtimeTextField.text = timeFormatter.string(from: sender.date)
     }
     
+    // Allows that on the price textfield user can only use numbers, point and comma.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let aSet = NSCharacterSet(charactersIn:"0123456789.,").inverted

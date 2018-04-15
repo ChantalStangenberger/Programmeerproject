@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleMaps
-import GooglePlaces
 import FacebookCore
 
 var facebookAccesToken: AccessToken?
@@ -33,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().tintColor = UIColor.black
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "thonburi", size: 17)!], for: .normal)
+        UITabBar.appearance().backgroundColor = UIColor.white
         
         return true
     }

@@ -5,12 +5,15 @@
 //  Created by Chantal Stangenberger on 15-02-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Set up button bar by https://www.youtube.com/watch?v=tkR2USQlkHI . User can swith between two tableviews (requested and validated).
+//
 
 import UIKit
 import XLPagerTabStrip
 
 class BookingsViewController:  ButtonBarPagerTabStripViewController {
     
+    // Set up view with some preferences.
     override func viewDidLoad() {
         self.loadDesign()
         super.viewDidLoad()
@@ -18,17 +21,20 @@ class BookingsViewController:  ButtonBarPagerTabStripViewController {
         view.backgroundColor = UIColor(red: 245/255, green: 244/255, blue: 249/255, alpha: 1)
     }
     
+    // Set latitude and logitude to 0.
     override func viewWillAppear(_ animated: Bool) {
         globalStruct.latitude = 0.0
         globalStruct.longitude = 0.0
     }
     
+    // Set two tableviews (requested and validated) under the buttonbar.
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child_overview = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "requestedTable")
         let child_request = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "validatedTable")
         return [child_overview, child_request]
     }
     
+    // Design preferences for the buttonbar.
     func loadDesign() {
         self.settings.style.selectedBarHeight = 1
         self.settings.style.buttonBarItemBackgroundColor = .white
@@ -47,6 +53,7 @@ class BookingsViewController:  ButtonBarPagerTabStripViewController {
         }
     }
     
+    // When tapped at the info button an alert with app info appears.
     @IBAction func infoButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Event Bookings", message: "Here you can find the events that you have been booking. Under 'requested' are events listed that not yet have been approved by the host of the event. When an event disappears from the requested section, the host of the event has declined your request. Under 'validated' you can find the approved requests for the events. When you tap on a validated event you can see the address of that event.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK",

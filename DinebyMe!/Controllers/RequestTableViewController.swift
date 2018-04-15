@@ -5,6 +5,9 @@
 //  Created by Chantal Stangenberger on 16-03-18.
 //  Copyright © 2018 Chantal Stangenberger. All rights reserved.
 //
+//  Displays all the requests done by other users for your events.
+//  Requests can be accepted or declined.
+//
 
 import UIKit
 import Firebase
@@ -16,6 +19,7 @@ class RequestTableViewController: UITableViewController {
     var booking = [Bookings]()
     let userId = Auth.auth().currentUser?.uid
 
+    // Set up view with some preferences and call function getMyBookingRequests.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,10 +32,13 @@ class RequestTableViewController: UITableViewController {
         getMyBookingRequests()
     }
     
+    // Set up some preferences and calls function updateRequests.
     override func viewDidAppear(_ animated: Bool) {
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         updateRequests()
     }
     
+    // Get all booking requests from firebase.
     func getMyBookingRequests() {
         databaseReference.child("booking").queryOrdered(byChild: "Hostid").queryEqual(toValue: userId!).observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -45,10 +52,12 @@ class RequestTableViewController: UITableViewController {
         })
     }
     
+    // Returns the amount of booking requests.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return booking.count
     }
     
+    // Returns tableview cell with data from firebase and set actions to the buttons in the cell.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! RequestTableViewCell
         
@@ -58,7 +67,7 @@ class RequestTableViewController: UITableViewController {
         cell.eventdateLabel?.text = booking[indexPath.row].eventDate
         cell.eventtimeLabel?.text = booking[indexPath.row].eventTime
         cell.questionLabel?.text = "Would like to eat \(booking[indexPath.row].recipeName) on \(booking[indexPath.row].eventDate) by you!"
-    databaseReference.child("users").child(booking[indexPath.row].userid).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
+    databaseReference.child("users").child(booking[indexPath.row].userid).child("name").observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as? String
             cell.nameofbookerLabel?.text = value!
         })
@@ -70,11 +79,7 @@ class RequestTableViewController: UITableViewController {
         return cell
     }
     
-    // makes the background of the cell transparent
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
-    }
-    
+    // When the accept button is pressed: add info to firebase (acceptedRequests) and delete booking request from firebase.
     @objc func acceptRequest(sender: UIButton) {
         let alert = UIAlertController(title: "Request accepted", message: "Your guest will be informed that you has accepted the request", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK",
@@ -93,6 +98,7 @@ class RequestTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    // When the decline button is pressed: add info to firebase (declinedRequests) and delete booking request from firebase.
     @objc func declineRequest(sender: UIButton) {
         let alert = UIAlertController(title: "Request declined", message: "You have declined the request", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK",
@@ -110,6 +116,7 @@ class RequestTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    // Updates events with current date/time. If date/time combination is in the past, delete event data from firebase and calls getMyBookingRequests.
     func updateRequests() {
         let date = Date()
         let dateformatter = DateFormatter()
@@ -141,10 +148,12 @@ class RequestTableViewController: UITableViewController {
                 }
             }
         })
+        tableView.reloadData()
         getMyBookingRequests()
     }
 }
 
+// With the function of IndicatorInfoProvider the title of this tableviewcontroller can be set in the buttonbar.
 extension RequestTableViewController : IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
