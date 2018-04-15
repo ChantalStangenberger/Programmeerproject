@@ -62,4 +62,11 @@
 * Ik was bezig  met het invoegen van een melding wanneer de tableviews geen data bevatten. Volgens mij is dit gelukt, maar tijdens het testen liep ik bij firebase storage tegen de volgende melding aan: U heeft uw quotum voor dit project overschreden. Upgrade uw abonnement.
 Als het goed is, is dit een daglimiet en zou dit morgen verholpen moeten zijn. Dan moet ik in ieder geval meteen zorgen dat ik een hoop data (die al uit de database zijn verwijderd) ook uit de storage verwijder.
 
+### Dag 13: 9 april
+* Alle view controllers bevatten de juiste data.
+* Ik heb ervoor gekozen om de melding bij de tableviews wanneer er geen data is weg te halen.
+* Ik heb het updaten van data met de tijd/datum ook in de andere tableviews toegevoegd.
+* Ik heb ook besloten om HomeSearchCollectionView weg te laten uit mijn app. Dit kost teveel tijd om er in te verwerken.
+* De app is zo goed als klaar, maar moet goed doorgetest worden.
+
 
