@@ -14,8 +14,7 @@ Met behulp van Dine by me kunnen gebruikers zoeken naar maaltijd aanbieders. Ze 
 
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Homescreen.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Login:Facebooklogin.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Signup.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Homefeed.PNG width="200">
 
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Addevent.PNG width="200">
-<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Addeventlocation.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Requested.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Validated.PNG width="200">
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Addevent.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Addeventlocation.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Requested.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Validated.PNG width="200">
 
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/LocationofValidated.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Overview.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Guests.PNG width="200"><img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Requests.PNG width="200">
 
