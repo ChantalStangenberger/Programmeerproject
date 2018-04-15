@@ -79,7 +79,12 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         } else {
-            databaseReference.child("booking").queryOrdered(byChild: "Control").queryEqual(toValue: self.dataStorage.sharedInstance.recipename + "_" + self.dataStorage.sharedInstance.repicetime + "_" + self.dataStorage.sharedInstance.recipedate + "_" + self.dataStorage.sharedInstance.id + "_" + self.userId!).observeSingleEvent(of: .value, with: { (snapshot) in
+            checkFirebase()
+        }
+    }
+    
+    func checkFirebase() {
+        databaseReference.child("booking").queryOrdered(byChild: "Control").queryEqual(toValue: self.dataStorage.sharedInstance.recipename + "_" + self.dataStorage.sharedInstance.repicetime + "_" + self.dataStorage.sharedInstance.recipedate + "_" + self.dataStorage.sharedInstance.id + "_" + self.userId!).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists(){
                 let alert = UIAlertController(title: "Whoops!", message: "You already booked this event!", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK",
@@ -124,11 +129,10 @@ class BookConfirmationViewController: UIViewController, UITextViewDelegate {
                                 alert.addAction(okAction)
                                 self.present(alert, animated: true, completion: nil)
                             }
-                            })
-                        }
-                    })
-                }
-            })
-        }
+                        })
+                    }
+                })
+            }
+        })
     }
 }

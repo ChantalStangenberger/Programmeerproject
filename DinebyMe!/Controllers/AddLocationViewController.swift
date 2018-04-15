@@ -154,14 +154,10 @@ extension AddLocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted:
-            print("Location access was restricted.")
             mapView.isHidden = false
         case .denied:
-            print("User denied access to location.")
-            // Display the map using the default location.
             mapView.isHidden = false
         case .notDetermined:
-            print("Location status not determined.")
             mapView.isHidden = false
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
