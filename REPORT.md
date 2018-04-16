@@ -42,8 +42,6 @@ er op een van deze events wordt geklikt, wordt de guestlist weergeven. Onder het
 die jouw event willen bezoeken weergeven. Dit verzoek kan worden geaccepteerd of verwijderd. Bij acceptatie, verschijnt bij deze gebruiker jouw
 event onder zijn 'validated' scherm.
 
-
-
-
+<img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Final%20classes%20.png width="1000">
 
 ## Challenges
