@@ -44,4 +44,69 @@ event onder zijn 'validated' scherm.
 
 <img src=https://github.com/ChantalStangenberger/Programmeerproject/blob/master/doc/Final%20classes%20.png width="1000">
 
+In Firebase heb ik gebruikt gemaakt van de volgende structuur:
+* acceptedRequests
+  - recipename and hostid and eventtime and eventdate and userid
+    - Control
+    - Cuisine
+    - Eventdate
+    - Eventdatetime
+    - Eventtime
+    - Hostid
+    - Image
+    - Price
+    - Recipename
+    - Userid
+    - latitude
+    - longitude
+
+* Users
+  - userId
+    - email
+    - userId
+    - name
+
+* newEvent
+  - random id
+    - Eventdate
+    - Eventdatetime
+    - Eventtime
+    - Latitudelocation
+    - Longitudelocation
+    - Recipecuisine
+    - Recipename
+    - Recipeprice
+    - addImage
+    - id
+    
+* declinedRequests
+  - recipename and hostid and eventtime and eventdate and userid
+    - Control
+    - Cuisine
+    - Eventdate
+    - Eventtime
+    - Hostid
+    - Image
+    - Price
+    - Recipename
+    - Userid
+    - latitude
+    - longitude
+    
+* booking
+  - recipename and hostid and eventtime and eventdate and userid
+    - Control
+    - Deletecheck
+    - Eventdate
+    - Eventdatetime
+    - Eventlatitude
+    - Eventlongitude
+    - Eventprice
+    - Eventtime
+    - Hostid
+    - Image
+    - Recipecuisine
+    - Recipename
+    - Userid
+
 ## Challenges
